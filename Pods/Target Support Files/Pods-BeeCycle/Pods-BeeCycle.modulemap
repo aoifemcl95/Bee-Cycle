@@ -1,0 +1,6 @@
+module Pods_BeeCycle {
+  umbrella header "Pods-BeeCycle-umbrella.h"
+
+  export *
+  module * { export * }
+}
