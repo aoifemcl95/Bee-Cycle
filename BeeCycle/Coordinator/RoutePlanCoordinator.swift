@@ -14,6 +14,7 @@ class RoutePlanCoordinator: Coordinator {
     private let presenter: UINavigationController
     private var routePlanViewController : RoutePlanViewController?
     private var routePlanCoordinator : RoutePlanCoordinator?
+    private var searchViewCoordinator: SearchViewCoordinator?
     private let mapItem: MKMapItem
     
     
@@ -31,6 +32,18 @@ class RoutePlanCoordinator: Coordinator {
         presenter.pushViewController(routePlanViewController, animated: true)
         
         self.routePlanViewController = routePlanViewController
-//        mapViewController.delegate = self
+        routePlanViewController.delegate = self
     }
 }
+
+extension RoutePlanCoordinator : RoutePlanDidSelectSearchDelegate
+{
+    func routePlanDidSelectSearch() {
+        let searchViewCoordinator = SearchViewCoordinator(presenter :presenter)
+        searchViewCoordinator.start()
+        self.searchViewCoordinator = searchViewCoordinator
+    }
+}
+
+
+

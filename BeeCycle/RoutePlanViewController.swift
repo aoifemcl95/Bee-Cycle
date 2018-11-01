@@ -9,6 +9,10 @@
 import UIKit
 import MapKit
 
+protocol RoutePlanDidSelectSearchDelegate : class
+{
+    func routePlanDidSelectSearch()
+}
 
 class RoutePlanViewController: UIViewController, UISearchBarDelegate, LocationServiceDelegate {
    
@@ -32,6 +36,7 @@ class RoutePlanViewController: UIViewController, UISearchBarDelegate, LocationSe
     var navController = UINavigationController()
     var coordinator: MainCoordinator?
     var mapItem: MKMapItem = MKMapItem()
+    weak var delegate : RoutePlanDidSelectSearchDelegate?
    
 
     override func viewDidLoad() {
@@ -77,14 +82,15 @@ class RoutePlanViewController: UIViewController, UISearchBarDelegate, LocationSe
     @IBAction func fromTapped(_ sender: Any) {
         self.fromTapped = true
         self.toTapped = false
+        delegate?.routePlanDidSelectSearch()
 //        self.coordinator?.displaySearch(fromTapped: self.fromTapped, toTapped: self.toTapped)
-        
         
     }
     
     @IBAction func toTapped(_ sender: Any) {
         self.toTapped = true
         self.fromTapped = false
+        delegate?.routePlanDidSelectSearch()
 //        self.coordinator?.displaySearch(fromTapped: self.fromTapped, toTapped: self.toTapped)
     }
     

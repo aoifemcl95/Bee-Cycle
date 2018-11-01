@@ -14,6 +14,7 @@ class SearchViewCoordinator: Coordinator {
     private let presenter: UINavigationController
     private var locationSearchTable: LocationSearchTable?
     private var searchViewController: SearchViewController?
+    private var searchViewCoordinator: SearchViewCoordinator?
     private var routePlanCoordinator : RoutePlanCoordinator?
 
     
@@ -28,10 +29,6 @@ class SearchViewCoordinator: Coordinator {
         presenter.pushViewController(searchViewController, animated: true)
         self.searchViewController = searchViewController
         self.searchViewController?.locationSearchTable.delegate = self
-//        let locationSearchTable = LocationSearchTable(fromTapped: true, toTapped: false)
-//        presenter.pushViewController(locationSearchTable, animated: true)
-////        self.locationSearchTable = locationSearchTable
-//        locationSearchTable.delegate = self
     }
 }
 
