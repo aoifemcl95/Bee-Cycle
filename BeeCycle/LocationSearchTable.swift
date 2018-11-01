@@ -9,9 +9,14 @@
 import UIKit
 import MapKit
 
+protocol LocationSearchDelegate: class
+{
+    func didSelectResult(mapItem: MKMapItem)
+}
+
 class LocationSearchTable: UIViewController, UITableViewDelegate, UITableViewDataSource{
-    var fromTapped: Bool
-    var toTapped: Bool
+//    var fromTapped: Bool
+//    var toTapped: Bool
     
     @IBOutlet weak var tableView: UITableView!
     var matchingItems: [MKMapItem] = []
@@ -20,20 +25,25 @@ class LocationSearchTable: UIViewController, UITableViewDelegate, UITableViewDat
     var startCoordinate: CLLocationCoordinate2D? = nil
     var coordinator: MainCoordinator?
     let navController = UINavigationController()
+    var delegate: LocationSearchDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        coordinator = MainCoordinator(navigationController: navController)
+//        coordinator = MainCoordinator(navigationController: navController)
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(UINib(nibName: "LocationSearchResultCell", bundle: nil), forCellReuseIdentifier: "cell")
 
     }
     
-    init(fromTapped: Bool, toTapped: Bool) {
-        self.fromTapped = fromTapped
-        self.toTapped = toTapped
-        super.init(nibName:nil, bundle:nil)
+//    init(fromTapped: Bool, toTapped: Bool) {
+//        self.fromTapped = fromTapped
+//        self.toTapped = toTapped
+//        super.init(nibName:nil, bundle:nil)
+//    }
+    init()
+    {
+         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -52,16 +62,9 @@ class LocationSearchTable: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if fromTapped
-        {
-            let journeySelection = JourneySelection(origin: matchingItems[indexPath.row])
-            self.coordinator?.displayRoutePlan(journeySelection: journeySelection)
-        }
-        else if toTapped
-        {
-            let journeySelection = JourneySelection(destination: matchingItems[indexPath.row])
-            self.coordinator?.displayRoutePlan(journeySelection: journeySelection)
-        }
+            let mapItem = matchingItems[indexPath.row]
+            delegate?.didSelectResult(mapItem: mapItem)
+   
     }
     
 
@@ -83,6 +86,10 @@ extension LocationSearchTable : UISearchResultsUpdating
         }
     }
 }
+
+
+
+
 
 
 

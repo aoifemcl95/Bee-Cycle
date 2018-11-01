@@ -11,30 +11,25 @@ import UIKit
 class MainCoordinator: Coordinator {
     
     var childCoordinators: [Coordinator] = [Coordinator]()
-    var navigationController: UINavigationController
+    var rootViewController: UINavigationController
+    let mapViewCoordinator: MapViewCoordinator
+    let window: UIWindow
     
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
-    }
-    
-    func start() {
-        let vc = ViewController.instantiate()
-        vc.coordinator = self
-        navigationController.pushViewController(vc, animated: false)
-    }
-    
-    func displaySearch(fromTapped: Bool, toTapped: Bool)
+    init(window: UIWindow)
     {
-        let vc = SearchViewController(fromTapped: fromTapped, toTapped: toTapped)
-        vc.coordinator = self
-        navigationController.pushViewController(vc, animated: true)
+        self.window = window
+        rootViewController = UINavigationController()
+        
+        //5
+        mapViewCoordinator = MapViewCoordinator(presenter: rootViewController)
     }
     
-    func displayRoutePlan(journeySelection: JourneySelection)
+    func start()
     {
-        let vc = RoutePlanViewController(journeySelection: journeySelection)
-        vc.coordinator = self
-        navigationController.pushViewController(vc, animated: true)
+        window.rootViewController = rootViewController
+        mapViewCoordinator.start()
+        window.makeKeyAndVisible()
     }
+
     
 }

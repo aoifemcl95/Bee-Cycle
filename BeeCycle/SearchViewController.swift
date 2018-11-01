@@ -18,6 +18,8 @@ class SearchViewController: UIViewController, LocationServiceDelegate {
     var fromTapped: Bool = false
     var toTapped: Bool = false
     weak var coordinator: MainCoordinator?
+    weak var delegate: LocationSearchDelegate?
+    let locationSearchTable = LocationSearchTable()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +43,6 @@ class SearchViewController: UIViewController, LocationServiceDelegate {
     
     func setupSearchBar()
     {
-        let locationSearchTable = LocationSearchTable(fromTapped: self.fromTapped, toTapped: self.toTapped)
         resultSearchController = UISearchController(searchResultsController: locationSearchTable)
         resultSearchController?.searchResultsUpdater = locationSearchTable
         let searchBar = resultSearchController!.searchBar

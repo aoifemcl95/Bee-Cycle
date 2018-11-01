@@ -1,8 +1,8 @@
 //
-//  ViewController.swift
+//  MapViewController.swift
 //  BeeCycle
 //
-//  Created by Aoife McLaughlin on 09/07/2018.
+//  Created by Aoife McLaughlin on 31/10/2018.
 //  Copyright © 2018 Aoife McLaughlin. All rights reserved.
 //
 
@@ -10,7 +10,12 @@ import UIKit
 import MapKit
 import Panels
 
-class ViewController: UIViewController, MKMapViewDelegate, LocationServiceDelegate, Storyboarded{
+protocol MapViewControllerDelegate : class
+{
+     func mapViewDidSelectSearch()
+}
+
+class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDelegate, Storyboarded{
     let panelManager = Panels()
     var panelable: Panelable!
     let regionRadius: CLLocationDistance = 1000
@@ -25,17 +30,18 @@ class ViewController: UIViewController, MKMapViewDelegate, LocationServiceDelega
     var routeDirections = ""
     var bottomSheetViewController = BottomSheetViewController.init(nibName: "BottomSheetViewController", bundle: nil)
     var searchViewController = SearchViewController(fromTapped: true, toTapped: false)
+    weak var delegate: MapViewControllerDelegate?
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var locateMe: UIButton!
-
+    
     @IBOutlet weak var searchButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
         locationService.delegate = self
-//        mapView.register(CycleLockerView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        //        mapView.register(CycleLockerView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         createAnnotations()
         mapView.showsUserLocation = true
         mapView.showsCompass = false
@@ -49,6 +55,7 @@ class ViewController: UIViewController, MKMapViewDelegate, LocationServiceDelega
     }
     
     @IBAction func searchTapped(_ sender: Any) {
+        delegate?.mapViewDidSelectSearch()
 //        self.coordinator?.displaySearch(fromTapped: true, toTapped: false)
     }
     
@@ -64,7 +71,7 @@ class ViewController: UIViewController, MKMapViewDelegate, LocationServiceDelega
         super.viewDidAppear(animated)
         
     }
-
+    
     @IBAction func locateMeTapped(_ sender: Any) {
         zoomToUserLocation()
         createAnnotations()
@@ -82,16 +89,16 @@ class ViewController: UIViewController, MKMapViewDelegate, LocationServiceDelega
             mapView.addAnnotations(annotations as! [MKAnnotation])
         }
     }
-
+    
     
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
                                                                   regionRadius, regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
     }
-        // Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setup after loading the view, typically from a nib.
     
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -136,7 +143,7 @@ class ViewController: UIViewController, MKMapViewDelegate, LocationServiceDelega
                 pinView = dequeuedView;
             }else{
                 pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: pinIdent);
-
+                
             }
             pinView.canShowCallout = true;
             pinView.image = UIImage(named: "CycleLocker")
@@ -144,7 +151,7 @@ class ViewController: UIViewController, MKMapViewDelegate, LocationServiceDelega
             return pinView;
         }
     }
-
+    
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(overlay: overlay)
         renderer.strokeColor = UIColor.yellow
@@ -155,7 +162,7 @@ class ViewController: UIViewController, MKMapViewDelegate, LocationServiceDelega
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         routeDirections.removeAll()
         hideBottomSheetView()
-//        addBottomSheetView()
+        //        addBottomSheetView()
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
@@ -168,7 +175,7 @@ class ViewController: UIViewController, MKMapViewDelegate, LocationServiceDelega
         }
     }
     
-
+    
     // cycle locker methods - bottom view controller
     
     func addBottomSheetView() {
@@ -247,5 +254,6 @@ class ViewController: UIViewController, MKMapViewDelegate, LocationServiceDelega
             }
         }
     }
-
+    
 }
+

@@ -21,8 +21,8 @@ class RoutePlanViewController: UIViewController, UISearchBarDelegate, LocationSe
     @IBOutlet weak var toView: UIView!
 //    var fromRoutingParameter: MKMapItem
 //    var toRoutingParamter: MKMapItem
-    var journeySelection: JourneySelection
-    var locationSearchTable = LocationSearchTable(fromTapped: false, toTapped: false)
+//    var journeySelection: JourneySelection = JourneySelection(o)
+    var locationSearchTable = LocationSearchTable()
     var resultSearchController: UISearchController? = nil
     var viewController = ViewController()
     var fromTapped: Bool = false
@@ -31,24 +31,15 @@ class RoutePlanViewController: UIViewController, UISearchBarDelegate, LocationSe
     var hasGotRegion = false
     var navController = UINavigationController()
     var coordinator: MainCoordinator?
+    var mapItem: MKMapItem = MKMapItem()
    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        coordinator = MainCoordinator(navigationController: navController)
-        if journeySelection.origin != nil
-        {
-            self.fromLabel.text = journeySelection.origin?.placemark.name
-        }
-        else if journeySelection.destination != nil
-        {
-            self.toLabel.text = journeySelection.destination?.placemark.name
-        }
-        
+//        coordinator = MainCoordinator(navigationController: navController)
+        self.fromLabel.text = mapItem.placemark.name
         locationService.delegate = self
         setupSearchBar()
-//        self.routeNavController = UINavigationController(rootViewController: self)
-        // Do any additional setup after loading the view.
     }
 
     
@@ -56,12 +47,11 @@ class RoutePlanViewController: UIViewController, UISearchBarDelegate, LocationSe
         super.awakeFromNib()
     }
     
-    init(journeySelection: JourneySelection)
+    init()
     {
-        self.journeySelection = journeySelection
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -73,8 +63,7 @@ class RoutePlanViewController: UIViewController, UISearchBarDelegate, LocationSe
     
     func setupSearchBar()
     {
-        let locationSearchTable = LocationSearchTable(fromTapped: self.fromTapped, toTapped: self.toTapped)
-        resultSearchController = UISearchController(searchResultsController: locationSearchTable)
+        resultSearchController = UISearchController(searchResultsController: self.locationSearchTable)
         resultSearchController?.searchResultsUpdater = locationSearchTable
         let searchBar = resultSearchController!.searchBar
         searchBar.sizeToFit()
@@ -88,7 +77,7 @@ class RoutePlanViewController: UIViewController, UISearchBarDelegate, LocationSe
     @IBAction func fromTapped(_ sender: Any) {
         self.fromTapped = true
         self.toTapped = false
-        self.coordinator?.displaySearch(fromTapped: self.fromTapped, toTapped: self.toTapped)
+//        self.coordinator?.displaySearch(fromTapped: self.fromTapped, toTapped: self.toTapped)
         
         
     }
@@ -96,7 +85,7 @@ class RoutePlanViewController: UIViewController, UISearchBarDelegate, LocationSe
     @IBAction func toTapped(_ sender: Any) {
         self.toTapped = true
         self.fromTapped = false
-        self.coordinator?.displaySearch(fromTapped: self.fromTapped, toTapped: self.toTapped)
+//        self.coordinator?.displaySearch(fromTapped: self.fromTapped, toTapped: self.toTapped)
     }
     
     func didUpdateLocation() {
