@@ -12,6 +12,7 @@
 		1964E3FD8BFCBD38AB903278 /* libPods-BeeCycle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE60A9B502F4D6C53655246F /* libPods-BeeCycle.a */; };
 		19761C24212F2AFC00E5CC51 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19761C22212F2AFC00E5CC51 /* LocationSearchTable.swift */; };
 		19761C25212F2AFC00E5CC51 /* LocationSearchTable.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19761C23212F2AFC00E5CC51 /* LocationSearchTable.xib */; };
+		19AA5CB821921E8500DC941C /* SearchViewCoordinatorTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AA5CB721921E8500DC941C /* SearchViewCoordinatorTwo.swift */; };
 		19D8CDE92141B3180000316E /* RouteParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D8CDE82141B3180000316E /* RouteParameter.swift */; };
 		19E24144210C8D8500D29BBC /* CycleLockerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E24143210C8D8500D29BBC /* CycleLockerView.swift */; };
 		19E24171211B5E0700D29BBC /* CycleStreetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E24170211B5E0700D29BBC /* CycleStreetService.swift */; };
@@ -70,6 +71,7 @@
 		1941F461212F33B200D19A70 /* LocationSearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationSearchResultCell.xib; sourceTree = "<group>"; };
 		19761C22212F2AFC00E5CC51 /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		19761C23212F2AFC00E5CC51 /* LocationSearchTable.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationSearchTable.xib; sourceTree = "<group>"; };
+		19AA5CB721921E8500DC941C /* SearchViewCoordinatorTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewCoordinatorTwo.swift; sourceTree = "<group>"; };
 		19D8CDE82141B3180000316E /* RouteParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteParameter.swift; sourceTree = "<group>"; };
 		19E24143210C8D8500D29BBC /* CycleLockerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleLockerView.swift; sourceTree = "<group>"; };
 		19E24170211B5E0700D29BBC /* CycleStreetService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleStreetService.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				5AB3C3FF2188C4CB0031974E /* MainCoordinator.swift */,
 				5AB3C408218A00B20031974E /* MapViewCoordinator.swift */,
 				5AB3C40A218A03EF0031974E /* SearchViewCoordinator.swift */,
+				19AA5CB721921E8500DC941C /* SearchViewCoordinatorTwo.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 			files = (
 				19E546E820F411B5000B3C35 /* ViewController.swift in Sources */,
 				5AB3C4002188C4CB0031974E /* MainCoordinator.swift in Sources */,
+				19AA5CB821921E8500DC941C /* SearchViewCoordinatorTwo.swift in Sources */,
 				5A99A2BF215E63C200B31E74 /* RoutePlanViewController.swift in Sources */,
 				5AB3C40B218A03EF0031974E /* SearchViewCoordinator.swift in Sources */,
 				5A2A3F5621077D91000FD3F8 /* BottomSheetViewController.swift in Sources */,

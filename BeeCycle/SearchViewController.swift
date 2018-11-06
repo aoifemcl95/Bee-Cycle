@@ -46,11 +46,15 @@ class SearchViewController: UIViewController, LocationServiceDelegate {
         resultSearchController = UISearchController(searchResultsController: locationSearchTable)
         resultSearchController?.searchResultsUpdater = locationSearchTable
         let searchBar = resultSearchController!.searchBar
+        searchBar.becomeFirstResponder()
         searchBar.sizeToFit()
         searchBar.placeholder = "Where are you coming from?"
+        
+        resultSearchController?.isActive = true
         navigationItem.titleView = resultSearchController?.searchBar
+        navigationItem.titleView?.isUserInteractionEnabled = true
         resultSearchController?.hidesNavigationBarDuringPresentation = false
-        resultSearchController?.dimsBackgroundDuringPresentation = true
+        resultSearchController?.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         locationSearchTable.mapView = mapView
     }

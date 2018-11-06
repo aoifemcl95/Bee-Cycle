@@ -26,6 +26,7 @@ class LocationSearchTable: UIViewController, UITableViewDelegate, UITableViewDat
     var coordinator: MainCoordinator?
     let navController = UINavigationController()
     var delegate: LocationSearchDelegate?
+    let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,14 +34,32 @@ class LocationSearchTable: UIViewController, UITableViewDelegate, UITableViewDat
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(UINib(nibName: "LocationSearchResultCell", bundle: nil), forCellReuseIdentifier: "cell")
+        // Setup the Search Controller
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Candies"
+        navigationItem.titleView = searchController.searchBar
+        navigationItem.titleView?.frame = CGRect(x: 0, y: 0, width: 414, height: 44)
+        searchController.hidesNavigationBarDuringPresentation = false
+        
+
+//        navigationItem.searchController = searchController
+        definesPresentationContext = true
+
 
     }
     
-//    init(fromTapped: Bool, toTapped: Bool) {
-//        self.fromTapped = fromTapped
-//        self.toTapped = toTapped
-//        super.init(nibName:nil, bundle:nil)
-//    }
+    override func viewDidAppear(_ animated: Bool) {
+        searchController.isActive = true
+        DispatchQueue.main.async {
+            self.searchController.searchBar.becomeFirstResponder()
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        searchController.searchBar.resignFirstResponder()
+        searchController.searchBar.removeFromSuperview()
+    }
     init()
     {
          super.init(nibName: nil, bundle: nil)
@@ -64,8 +83,10 @@ class LocationSearchTable: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             let mapItem = matchingItems[indexPath.row]
             delegate?.didSelectResult(mapItem: mapItem)
+        searchController.searchBar.text = nil
    
     }
+    
     
 
 }
@@ -84,6 +105,13 @@ extension LocationSearchTable : UISearchResultsUpdating
             self.matchingItems = response.mapItems
             self.tableView.reloadData()
         }
+    }
+}
+
+extension LocationSearchTable : UISearchControllerDelegate
+{
+    func didPresentSearchController(_ searchController: UISearchController) {
+        print("YESS IT'S BEEN CALLED")
     }
 }
 

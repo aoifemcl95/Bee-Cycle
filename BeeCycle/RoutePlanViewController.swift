@@ -44,7 +44,6 @@ class RoutePlanViewController: UIViewController, UISearchBarDelegate, LocationSe
 //        coordinator = MainCoordinator(navigationController: navController)
         self.fromLabel.text = mapItem.placemark.name
         locationService.delegate = self
-        setupSearchBar()
     }
 
     
@@ -65,19 +64,6 @@ class RoutePlanViewController: UIViewController, UISearchBarDelegate, LocationSe
         self.present(resultSearchController!, animated: true, completion: nil)
     }
     
-    
-    func setupSearchBar()
-    {
-        resultSearchController = UISearchController(searchResultsController: self.locationSearchTable)
-        resultSearchController?.searchResultsUpdater = locationSearchTable
-        let searchBar = resultSearchController!.searchBar
-        searchBar.sizeToFit()
-        searchBar.placeholder = "Where are you going to?"
-        navigationItem.titleView = resultSearchController?.searchBar
-        resultSearchController?.hidesNavigationBarDuringPresentation = false
-        resultSearchController?.dimsBackgroundDuringPresentation = true
-        definesPresentationContext = true
-    }
     
     @IBAction func fromTapped(_ sender: Any) {
         self.fromTapped = true

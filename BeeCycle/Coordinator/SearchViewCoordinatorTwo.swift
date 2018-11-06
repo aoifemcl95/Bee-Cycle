@@ -1,23 +1,20 @@
 //
-//  SearchViewCoordinator.swift
+//  SearchViewCoordinatorTwo.swift
 //  BeeCycle
 //
-//  Created by Aoife McLaughlin on 31/10/2018.
+//  Created by Aoife McLaughlin on 06/11/2018.
 //  Copyright © 2018 Aoife McLaughlin. All rights reserved.
 //
 
 import UIKit
 import MapKit
 
-class SearchViewCoordinator: Coordinator {
-
+class SearchViewCoordinatorTwo: Coordinator {
+    
     private let presenter: UINavigationController
     private var locationSearchTable: LocationSearchTable?
-    private var searchViewController: SearchViewController?
-    private var searchViewCoordinator: SearchViewCoordinator?
-    private var routePlanCoordinator : RoutePlanCoordinator?
-
-    
+    private var searchViewCoordinatorTwo : SearchViewCoordinatorTwo?
+    private var routePlanCoordinator: RoutePlanCoordinator?
     
     init(presenter: UINavigationController)
     {
@@ -26,13 +23,15 @@ class SearchViewCoordinator: Coordinator {
     
     func start() {
         let locationSearchTable = LocationSearchTable()
-        presenter.pushViewController(locationSearchTable, animated: true)
+        presenter.popViewController(animated: true)
+//        presenter.popToViewController(LocationSearchTable, animated: true)
         self.locationSearchTable = locationSearchTable
         self.locationSearchTable?.delegate = self
     }
+    
+    
 }
-
-extension SearchViewCoordinator : LocationSearchDelegate
+extension SearchViewCoordinatorTwo : LocationSearchDelegate
 {
     func didSelectResult(mapItem: MKMapItem) {
         let routePlanCoordinator = RoutePlanCoordinator(presenter :presenter, mapItem:mapItem)
@@ -40,3 +39,4 @@ extension SearchViewCoordinator : LocationSearchDelegate
         self.routePlanCoordinator = routePlanCoordinator
     }
 }
+
