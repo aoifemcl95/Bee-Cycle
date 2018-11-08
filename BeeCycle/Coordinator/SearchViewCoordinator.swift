@@ -13,7 +13,6 @@ class SearchViewCoordinator: Coordinator {
 
     private let presenter: UINavigationController
     private var locationSearchTable: LocationSearchTable?
-    private var searchViewController: SearchViewController?
     private var searchViewCoordinator: SearchViewCoordinator?
     private var routePlanCoordinator : RoutePlanCoordinator?
 

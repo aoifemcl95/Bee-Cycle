@@ -29,7 +29,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
     weak var coordinator: MainCoordinator?
     var routeDirections = ""
     var bottomSheetViewController = BottomSheetViewController.init(nibName: "BottomSheetViewController", bundle: nil)
-    var searchViewController = SearchViewController(fromTapped: true, toTapped: false)
     weak var delegate: MapViewControllerDelegate?
     
     @IBOutlet weak var mapView: MKMapView!

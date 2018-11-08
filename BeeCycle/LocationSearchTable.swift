@@ -37,7 +37,7 @@ class LocationSearchTable: UIViewController, UITableViewDelegate, UITableViewDat
         // Setup the Search Controller
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Candies"
+        searchController.searchBar.placeholder = "Where are you going?"
         navigationItem.titleView = searchController.searchBar
         navigationItem.titleView?.frame = CGRect(x: 0, y: 0, width: 414, height: 44)
         searchController.hidesNavigationBarDuringPresentation = false

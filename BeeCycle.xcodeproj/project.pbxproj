@@ -33,7 +33,6 @@
 		5A99A2BC215E2A9400B31E74 /* JourneyPlannerResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A99A2BB215E2A9400B31E74 /* JourneyPlannerResult.swift */; };
 		5A99A2BF215E63C200B31E74 /* RoutePlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A99A2BD215E63C200B31E74 /* RoutePlanViewController.swift */; };
 		5A99A2C0215E63C200B31E74 /* RoutePlanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A99A2BE215E63C200B31E74 /* RoutePlanViewController.xib */; };
-		5A99A2C2216278C600B31E74 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A99A2C1216278C600B31E74 /* SearchViewController.swift */; };
 		5AB3C3F82188805D0031974E /* JourneySelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB3C3F72188805D0031974E /* JourneySelection.swift */; };
 		5AB3C3FC2188C3390031974E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB3C3FB2188C3390031974E /* Coordinator.swift */; };
 		5AB3C3FE2188C3A00031974E /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB3C3FD2188C3A00031974E /* Storyboarded.swift */; };
@@ -101,7 +100,6 @@
 		5A99A2BB215E2A9400B31E74 /* JourneyPlannerResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyPlannerResult.swift; sourceTree = "<group>"; };
 		5A99A2BD215E63C200B31E74 /* RoutePlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutePlanViewController.swift; sourceTree = "<group>"; };
 		5A99A2BE215E63C200B31E74 /* RoutePlanViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoutePlanViewController.xib; sourceTree = "<group>"; };
-		5A99A2C1216278C600B31E74 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		5AB3C3F72188805D0031974E /* JourneySelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JourneySelection.swift; sourceTree = "<group>"; };
 		5AB3C3FB2188C3390031974E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		5AB3C3FD2188C3A00031974E /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
@@ -191,7 +189,6 @@
 				5A99A2BB215E2A9400B31E74 /* JourneyPlannerResult.swift */,
 				19E24143210C8D8500D29BBC /* CycleLockerView.swift */,
 				5AD2242120F65AD0000A8112 /* CycleService.swift */,
-				5A99A2C1216278C600B31E74 /* SearchViewController.swift */,
 				5A99A2BD215E63C200B31E74 /* RoutePlanViewController.swift */,
 				5A99A2BE215E63C200B31E74 /* RoutePlanViewController.xib */,
 				5A2A3F1821020A63000FD3F8 /* LocationService.swift */,
@@ -470,7 +467,6 @@
 				5AB3C40B218A03EF0031974E /* SearchViewCoordinator.swift in Sources */,
 				5A2A3F5621077D91000FD3F8 /* BottomSheetViewController.swift in Sources */,
 				5AB3C3F82188805D0031974E /* JourneySelection.swift in Sources */,
-				5A99A2C2216278C600B31E74 /* SearchViewController.swift in Sources */,
 				19E546E620F411B5000B3C35 /* AppDelegate.swift in Sources */,
 				5AB3C3FC2188C3390031974E /* Coordinator.swift in Sources */,
 				5AB3C40D218A13BC0031974E /* RoutePlanCoordinator.swift in Sources */,
