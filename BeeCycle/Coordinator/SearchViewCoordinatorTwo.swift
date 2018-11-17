@@ -23,8 +23,7 @@ class SearchViewCoordinatorTwo: Coordinator {
     
     func start() {
         let locationSearchTable = LocationSearchTable()
-        presenter.popViewController(animated: false)
-//        presenter.popToViewController(LocationSearchTable, animated: true)
+        presenter.pushViewController(locationSearchTable, animated: true)
         self.locationSearchTable = locationSearchTable
         self.locationSearchTable?.delegate = self
     }

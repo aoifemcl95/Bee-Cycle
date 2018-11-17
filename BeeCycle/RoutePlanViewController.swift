@@ -28,7 +28,6 @@ class RoutePlanViewController: UIViewController, UISearchBarDelegate, LocationSe
 //    var journeySelection: JourneySelection = JourneySelection(o)
     var locationSearchTable = LocationSearchTable()
     var resultSearchController: UISearchController? = nil
-    var viewController = ViewController()
     var fromTapped: Bool = false
     var toTapped: Bool = false
     var locationService = LocationService()

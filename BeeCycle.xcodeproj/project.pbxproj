@@ -13,11 +13,11 @@
 		19761C24212F2AFC00E5CC51 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19761C22212F2AFC00E5CC51 /* LocationSearchTable.swift */; };
 		19761C25212F2AFC00E5CC51 /* LocationSearchTable.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19761C23212F2AFC00E5CC51 /* LocationSearchTable.xib */; };
 		19AA5CB821921E8500DC941C /* SearchViewCoordinatorTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AA5CB721921E8500DC941C /* SearchViewCoordinatorTwo.swift */; };
+		19AA5CBA21A0557100DC941C /* MapPinCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AA5CB921A0557100DC941C /* MapPinCoordinator.swift */; };
 		19D8CDE92141B3180000316E /* RouteParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D8CDE82141B3180000316E /* RouteParameter.swift */; };
 		19E24144210C8D8500D29BBC /* CycleLockerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E24143210C8D8500D29BBC /* CycleLockerView.swift */; };
 		19E24171211B5E0700D29BBC /* CycleStreetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E24170211B5E0700D29BBC /* CycleStreetService.swift */; };
 		19E546E620F411B5000B3C35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E546E520F411B5000B3C35 /* AppDelegate.swift */; };
-		19E546E820F411B5000B3C35 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E546E720F411B5000B3C35 /* ViewController.swift */; };
 		19E546ED20F411B5000B3C35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19E546EC20F411B5000B3C35 /* Assets.xcassets */; };
 		19E546F020F411B5000B3C35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19E546EE20F411B5000B3C35 /* LaunchScreen.storyboard */; };
 		19E546FB20F411B5000B3C35 /* BeeCycleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E546FA20F411B5000B3C35 /* BeeCycleTests.swift */; };
@@ -37,7 +37,6 @@
 		5AB3C3FC2188C3390031974E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB3C3FB2188C3390031974E /* Coordinator.swift */; };
 		5AB3C3FE2188C3A00031974E /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB3C3FD2188C3A00031974E /* Storyboarded.swift */; };
 		5AB3C4002188C4CB0031974E /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB3C3FF2188C4CB0031974E /* MainCoordinator.swift */; };
-		5AB3C4032189FED90031974E /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AB3C4022189FED90031974E /* ViewController.xib */; };
 		5AB3C4062189FF220031974E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB3C4042189FF220031974E /* MapViewController.swift */; };
 		5AB3C4072189FF220031974E /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AB3C4052189FF220031974E /* MapViewController.xib */; };
 		5AB3C409218A00B20031974E /* MapViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB3C408218A00B20031974E /* MapViewCoordinator.swift */; };
@@ -71,12 +70,12 @@
 		19761C22212F2AFC00E5CC51 /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		19761C23212F2AFC00E5CC51 /* LocationSearchTable.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationSearchTable.xib; sourceTree = "<group>"; };
 		19AA5CB721921E8500DC941C /* SearchViewCoordinatorTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewCoordinatorTwo.swift; sourceTree = "<group>"; };
+		19AA5CB921A0557100DC941C /* MapPinCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPinCoordinator.swift; sourceTree = "<group>"; };
 		19D8CDE82141B3180000316E /* RouteParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteParameter.swift; sourceTree = "<group>"; };
 		19E24143210C8D8500D29BBC /* CycleLockerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleLockerView.swift; sourceTree = "<group>"; };
 		19E24170211B5E0700D29BBC /* CycleStreetService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleStreetService.swift; sourceTree = "<group>"; };
 		19E546E220F411B5000B3C35 /* BeeCycle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeeCycle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19E546E520F411B5000B3C35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		19E546E720F411B5000B3C35 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		19E546EC20F411B5000B3C35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19E546EF20F411B5000B3C35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		19E546F120F411B5000B3C35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -104,7 +103,6 @@
 		5AB3C3FB2188C3390031974E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		5AB3C3FD2188C3A00031974E /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		5AB3C3FF2188C4CB0031974E /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
-		5AB3C4022189FED90031974E /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		5AB3C4042189FF220031974E /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		5AB3C4052189FF220031974E /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		5AB3C408218A00B20031974E /* MapViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewCoordinator.swift; sourceTree = "<group>"; };
@@ -174,8 +172,6 @@
 			children = (
 				5AB3C3F72188805D0031974E /* JourneySelection.swift */,
 				19E546E520F411B5000B3C35 /* AppDelegate.swift */,
-				19E546E720F411B5000B3C35 /* ViewController.swift */,
-				5AB3C4022189FED90031974E /* ViewController.xib */,
 				19E24170211B5E0700D29BBC /* CycleStreetService.swift */,
 				19D8CDE82141B3180000316E /* RouteParameter.swift */,
 				5A8F806E215E1C2C002D7993 /* PanelOptionsViewController.swift */,
@@ -233,6 +229,7 @@
 				5AB3C408218A00B20031974E /* MapViewCoordinator.swift */,
 				5AB3C40A218A03EF0031974E /* SearchViewCoordinator.swift */,
 				19AA5CB721921E8500DC941C /* SearchViewCoordinatorTwo.swift */,
+				19AA5CB921A0557100DC941C /* MapPinCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -372,7 +369,6 @@
 			files = (
 				19761C25212F2AFC00E5CC51 /* LocationSearchTable.xib in Resources */,
 				19E546F020F411B5000B3C35 /* LaunchScreen.storyboard in Resources */,
-				5AB3C4032189FED90031974E /* ViewController.xib in Resources */,
 				19E546ED20F411B5000B3C35 /* Assets.xcassets in Resources */,
 				5AB3C4072189FF220031974E /* MapViewController.xib in Resources */,
 				5A2A3F5721077D91000FD3F8 /* BottomSheetViewController.xib in Resources */,
@@ -460,7 +456,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19E546E820F411B5000B3C35 /* ViewController.swift in Sources */,
 				5AB3C4002188C4CB0031974E /* MainCoordinator.swift in Sources */,
 				19AA5CB821921E8500DC941C /* SearchViewCoordinatorTwo.swift in Sources */,
 				5A99A2BF215E63C200B31E74 /* RoutePlanViewController.swift in Sources */,
@@ -482,6 +477,7 @@
 				5A2A3F1921020A64000FD3F8 /* LocationService.swift in Sources */,
 				5AD2242220F65AD0000A8112 /* CycleService.swift in Sources */,
 				5AD2241420F4FCBC000A8112 /* CycleLocker.swift in Sources */,
+				19AA5CBA21A0557100DC941C /* MapPinCoordinator.swift in Sources */,
 				19E24144210C8D8500D29BBC /* CycleLockerView.swift in Sources */,
 				5A99A2BA215E299800B31E74 /* RoutingParameter.swift in Sources */,
 				5A99A2B8215E28F600B31E74 /* LocationProtocol.swift in Sources */,

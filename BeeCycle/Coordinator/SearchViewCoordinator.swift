@@ -14,7 +14,7 @@ class SearchViewCoordinator: Coordinator {
     private let presenter: UINavigationController
     private var locationSearchTable: LocationSearchTable?
     private var searchViewCoordinator: SearchViewCoordinator?
-    private var routePlanCoordinator : RoutePlanCoordinator?
+    private var mapViewCoordinator : MapPinCoordinator?
 
     
     
@@ -34,8 +34,8 @@ class SearchViewCoordinator: Coordinator {
 extension SearchViewCoordinator : LocationSearchDelegate
 {
     func didSelectResult(mapItem: MKMapItem) {
-        let routePlanCoordinator = RoutePlanCoordinator(presenter :presenter, mapItem:mapItem)
-        routePlanCoordinator.start()
-        self.routePlanCoordinator = routePlanCoordinator
+        let mapPinCoordinator = MapPinCoordinator(presenter:presenter, mapItem:mapItem)
+        mapPinCoordinator.start()
+        self.mapViewCoordinator = mapPinCoordinator
     }
 }

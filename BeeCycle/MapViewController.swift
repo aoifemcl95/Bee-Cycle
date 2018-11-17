@@ -13,7 +13,14 @@ import Panels
 protocol MapViewControllerDelegate : class
 {
      func mapViewDidSelectSearch()
+    
 }
+
+protocol MapViewTitleDelegate: class
+{
+    func configurePanelTitle(mapItem: MKMapItem)
+}
+
 
 class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDelegate, Storyboarded{
     let panelManager = Panels()
@@ -24,12 +31,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
     var annotations = NSMutableArray()
     var locationService = LocationService()
     var hasGotRegion = false
+    weak var mapItem = MKMapItem()
     var cycleLockerArray = [CycleLocker]()
     var journeyPlannerResult = JourneyPlannerResult(polylineCoordinates: [])
     weak var coordinator: MainCoordinator?
     var routeDirections = ""
     var bottomSheetViewController = BottomSheetViewController.init(nibName: "BottomSheetViewController", bundle: nil)
     weak var delegate: MapViewControllerDelegate?
+    weak var panelDelegate: MapViewTitleDelegate?
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var locateMe: UIButton!
@@ -41,15 +50,21 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
         mapView.delegate = self
         locationService.delegate = self
         //        mapView.register(CycleLockerView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
-        createAnnotations()
+//        createAnnotations()
         mapView.showsUserLocation = true
         mapView.showsCompass = false
-        mapView.showAnnotations(annotations as! [MKAnnotation], animated: true)
+//        mapView.showAnnotations(annotations as! [MKAnnotation], animated: true)
         cycleStreetService.requestCycleStreet { (journeyPlannerResult) in
             self.createPolyline()
         }
+        if ((mapItem) != nil)
+        {
+            self.createMapPin(mapItem: mapItem!)
+            self.centerMapOnLocation(location: (mapItem?.placemark.location)!)
+            configurePanel()
+        }
         
-        configurePanel()
+//        configurePanel()
         
     }
     
@@ -63,6 +78,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
     {
         var panelConfiguration = PanelConfiguration(storyboardName: "PanelOptionsViewController")
         panelConfiguration.panelSize = .custom(400)
+        let panelOptionsVC = PanelOptionsViewController()
+        self.panelDelegate = panelOptionsVC
+        panelDelegate?.configurePanelTitle(mapItem: mapItem!)
+        
         panelManager.addPanel(with: panelConfiguration, target: self)
     }
     
@@ -74,6 +93,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
     @IBAction func locateMeTapped(_ sender: Any) {
         zoomToUserLocation()
         createAnnotations()
+    }
+    
+    func createMapPin(mapItem: MKMapItem)
+    {
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = CLLocationCoordinate2D(latitude: mapItem.placemark.coordinate.latitude, longitude: mapItem.placemark.coordinate.longitude)
+        annotation.title = mapItem.placemark.name
+        mapView.addAnnotation(annotation as MKAnnotation)
     }
     
     
@@ -255,4 +282,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
     }
     
 }
+
+
 
