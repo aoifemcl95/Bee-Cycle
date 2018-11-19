@@ -26,6 +26,15 @@ class MapPinCoordinator: Coordinator {
         mapViewController.mapItem = self.mapItem
         presenter.pushViewController(mapViewController, animated: true)
         self.mapViewController = mapViewController
+        mapViewController.delegate = self
     }
 }
 
+extension MapPinCoordinator : MapViewControllerDelegate
+{
+    func mapViewDidSelectSearch() {
+        let searchViewCoordinator = SearchViewCoordinator(presenter :presenter)
+        searchViewCoordinator.start()
+        self.searchViewCoordinator = searchViewCoordinator
+    }
+}
