@@ -26,8 +26,6 @@
 		5A2A3F1921020A64000FD3F8 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2A3F1821020A63000FD3F8 /* LocationService.swift */; };
 		5A2A3F5621077D91000FD3F8 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2A3F5421077D91000FD3F8 /* BottomSheetViewController.swift */; };
 		5A2A3F5721077D91000FD3F8 /* BottomSheetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A2A3F5521077D91000FD3F8 /* BottomSheetViewController.xib */; };
-		5A8F8070215E1C2C002D7993 /* PanelOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8F806E215E1C2C002D7993 /* PanelOptionsViewController.swift */; };
-		5A8F8073215E2272002D7993 /* PanelOptionsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A8F8072215E2272002D7993 /* PanelOptionsViewController.storyboard */; };
 		5A99A2B8215E28F600B31E74 /* LocationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A99A2B7215E28F600B31E74 /* LocationProtocol.swift */; };
 		5A99A2BA215E299800B31E74 /* RoutingParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A99A2B9215E299800B31E74 /* RoutingParameter.swift */; };
 		5A99A2BC215E2A9400B31E74 /* JourneyPlannerResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A99A2BB215E2A9400B31E74 /* JourneyPlannerResult.swift */; };
@@ -92,8 +90,6 @@
 		5A2A3F1821020A63000FD3F8 /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		5A2A3F5421077D91000FD3F8 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 		5A2A3F5521077D91000FD3F8 /* BottomSheetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomSheetViewController.xib; sourceTree = "<group>"; };
-		5A8F806E215E1C2C002D7993 /* PanelOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelOptionsViewController.swift; sourceTree = "<group>"; };
-		5A8F8072215E2272002D7993 /* PanelOptionsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PanelOptionsViewController.storyboard; sourceTree = "<group>"; };
 		5A99A2B7215E28F600B31E74 /* LocationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProtocol.swift; sourceTree = "<group>"; };
 		5A99A2B9215E299800B31E74 /* RoutingParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingParameter.swift; sourceTree = "<group>"; };
 		5A99A2BB215E2A9400B31E74 /* JourneyPlannerResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyPlannerResult.swift; sourceTree = "<group>"; };
@@ -174,8 +170,6 @@
 				19E546E520F411B5000B3C35 /* AppDelegate.swift */,
 				19E24170211B5E0700D29BBC /* CycleStreetService.swift */,
 				19D8CDE82141B3180000316E /* RouteParameter.swift */,
-				5A8F806E215E1C2C002D7993 /* PanelOptionsViewController.swift */,
-				5A8F8072215E2272002D7993 /* PanelOptionsViewController.storyboard */,
 				19E546EC20F411B5000B3C35 /* Assets.xcassets */,
 				19E546EE20F411B5000B3C35 /* LaunchScreen.storyboard */,
 				19E546F120F411B5000B3C35 /* Info.plist */,
@@ -374,7 +368,6 @@
 				5A2A3F5721077D91000FD3F8 /* BottomSheetViewController.xib in Resources */,
 				5A99A2C0215E63C200B31E74 /* RoutePlanViewController.xib in Resources */,
 				1941F463212F33B200D19A70 /* LocationSearchResultCell.xib in Resources */,
-				5A8F8073215E2272002D7993 /* PanelOptionsViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,7 +461,6 @@
 				5AB3C3FE2188C3A00031974E /* Storyboarded.swift in Sources */,
 				5AB3C409218A00B20031974E /* MapViewCoordinator.swift in Sources */,
 				19D8CDE92141B3180000316E /* RouteParameter.swift in Sources */,
-				5A8F8070215E1C2C002D7993 /* PanelOptionsViewController.swift in Sources */,
 				5AB3C4062189FF220031974E /* MapViewController.swift in Sources */,
 				19761C24212F2AFC00E5CC51 /* LocationSearchTable.swift in Sources */,
 				5A99A2BC215E2A9400B31E74 /* JourneyPlannerResult.swift in Sources */,

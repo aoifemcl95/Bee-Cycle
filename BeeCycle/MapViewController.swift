@@ -8,7 +8,6 @@
 
 import UIKit
 import MapKit
-import Panels
 
 protocol MapViewControllerDelegate : class
 {
@@ -16,15 +15,8 @@ protocol MapViewControllerDelegate : class
     
 }
 
-protocol MapViewTitleDelegate: class
-{
-    func configurePanelTitle(mapItem: MKMapItem)
-}
-
 
 class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDelegate, Storyboarded{
-    let panelManager = Panels()
-    var panelable: Panelable!
     let regionRadius: CLLocationDistance = 1000
     var cycleService = CycleService()
     var cycleStreetService = CycleStreetService()
@@ -33,12 +25,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
     var hasGotRegion = false
     weak var mapItem = MKMapItem()
     var cycleLockerArray = [CycleLocker]()
-//    var journeyPlannerResult = JourneyPlannerResult(polylineCoordinates: [], startName: "", endName: "")
     weak var coordinator: MainCoordinator?
     var routeDirections = ""
     var bottomSheetViewController = BottomSheetViewController.init(nibName: "BottomSheetViewController", bundle: nil)
     weak var delegate: MapViewControllerDelegate?
-    weak var panelDelegate: MapViewTitleDelegate?
     var journeyOrigin = MKMapItem()
     var journeyDest = MKMapItem()
     
@@ -65,8 +55,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
             addBottomSheetView()
         }
         
-//        configurePanel()
-        
     }
     
     @IBAction func searchTapped(_ sender: Any) {
@@ -74,17 +62,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
 //        self.coordinator?.displaySearch(fromTapped: true, toTapped: false)
     }
     
-    
-    func configurePanel()
-    {
-        var panelConfiguration = PanelConfiguration(storyboardName: "PanelOptionsViewController")
-        panelConfiguration.panelSize = .custom(400)
-        let panelOptionsVC = PanelOptionsViewController()
-        self.panelDelegate = panelOptionsVC
-//        panelDelegate?.configurePanelTitle(mapItem: mapItem!)
-        
-        panelManager.addPanel(with: panelConfiguration, target: self)
-    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -147,7 +124,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
     
     func showResultDetails(journeyPlannerResult: JourneyPlannerResult)
     {
-        self.bottomSheetViewController.directionsLabel.text = journeyPlannerResult.startName
+        let startName = (journeyPlannerResult.startName != nil) ? journeyPlannerResult.startName! : ""
+        self.bottomSheetViewController.directionsLabel.text = "Current Location to \(startName)"
+        let durationString = String(journeyPlannerResult.duration!)
+        let durationMinString = journeyPlannerResult.duration! > 1 ? "\(durationString) mins" : "\(durationString) min"
+        self.bottomSheetViewController.durationLabel.text = durationMinString
         self.bottomSheetViewController.reloadInputViews()
     }
     

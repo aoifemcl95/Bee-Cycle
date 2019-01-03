@@ -8,7 +8,6 @@ target 'BeeCycle' do
   # Pods for BeeCycle
 pod 'Alamofire'
 pod 'SwiftyJSON'
-pod 'Panels', '~> 1.00'
   target 'BeeCycleTests' do
     inherit! :search_paths
     # Pods for testing
