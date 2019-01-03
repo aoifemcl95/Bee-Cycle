@@ -32,9 +32,10 @@ class MapPinCoordinator: Coordinator {
 
 extension MapPinCoordinator : MapViewControllerDelegate
 {
-    func mapViewDidSelectSearch() {
+    func mapViewDidSelectSearch(mapView: MKMapView?) {
         let searchViewCoordinator = SearchViewCoordinator(presenter :presenter)
         searchViewCoordinator.start()
         self.searchViewCoordinator = searchViewCoordinator
     }
+    
 }

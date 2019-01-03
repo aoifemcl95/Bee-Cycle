@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class MapViewCoordinator: Coordinator {
     private let presenter: UINavigationController
@@ -32,8 +33,9 @@ class MapViewCoordinator: Coordinator {
 
 extension MapViewCoordinator : MapViewControllerDelegate
 {
-    func mapViewDidSelectSearch() {
+    func mapViewDidSelectSearch(mapView: MKMapView?) {
         let searchViewCoordinator = SearchViewCoordinator(presenter :presenter)
+        searchViewCoordinator.mapView = mapView
         searchViewCoordinator.start()
         self.searchViewCoordinator = searchViewCoordinator
     }

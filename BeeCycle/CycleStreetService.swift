@@ -49,6 +49,7 @@ class CycleStreetService: NSObject {
             let myAttributes = myResponse.marker[0].attributes
             let startName = myAttributes["start"]
             let endName = myAttributes["finish"]
+            let name = myAttributes["name"]
             let duration = Int(Double(myAttributes["time"]!)!/60)
             let startLat = Double(myAttributes["start_latitude"]!)
             let startLng = Double(myAttributes["start_longitude"]!)
@@ -69,7 +70,7 @@ class CycleStreetService: NSObject {
             self.createDoubleCoordinateArray()
             self.createCoordinateArray()
             print(self.createCoordinateArray())
-            let result = JourneyPlannerResult(polylineCoordinates: self.coordinateArray, startName: startName!, endName: endName!, duration: duration)
+            let result = JourneyPlannerResult(polylineCoordinates: self.coordinateArray, startName: startName!, endName: endName!, duration: duration, name: name)
             completion(result)
 
             

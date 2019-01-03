@@ -14,12 +14,14 @@ class JourneyPlannerResult: NSObject {
     var startName: String?
     var endName: String?
     var duration: Int?
+    var name: String?
     
-    init(polylineCoordinates: [CLLocationCoordinate2D], startName: String?, endName: String?, duration: Int?)
+    init(polylineCoordinates: [CLLocationCoordinate2D], startName: String?, endName: String?, duration: Int?, name:String?)
     {
         self.polylineCoordinates = polylineCoordinates
         self.startName = startName
         self.endName = endName
+        self.name = name
         self.duration = duration
     }
 }

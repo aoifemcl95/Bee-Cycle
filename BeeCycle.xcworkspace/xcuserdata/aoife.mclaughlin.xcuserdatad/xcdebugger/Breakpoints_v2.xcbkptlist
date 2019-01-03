@@ -126,7 +126,7 @@
                   moduleName = "BeeCycle"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/aoife.mclaughlin/Documents/aoife/Bee-Cycle/BeeCycle/RoutePlanViewController.swift"
-                  timestampString = "568220564.665404"
+                  timestampString = "568226964.9544719"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "38"
@@ -141,7 +141,7 @@
                   moduleName = "BeeCycle"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/aoife.mclaughlin/Documents/aoife/Bee-Cycle/BeeCycle/RoutePlanViewController.swift"
-                  timestampString = "568220564.6673011"
+                  timestampString = "568226964.9577889"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "38"
@@ -168,13 +168,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BeeCycle/Coordinator/MainCoordinator.swift"
-            timestampString = "562613525.410706"
+            timestampString = "568223283.4750381"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "displayRoutePlan(journeySelection:)"
-            landmarkType = "7">
+            startingLineNumber = "36"
+            endingLineNumber = "36">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -200,11 +198,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BeeCycle/Coordinator/SearchViewCoordinator.swift"
-            timestampString = "568220562.376596"
+            timestampString = "568226964.752216"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "didSelectResult(mapItem:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -216,11 +214,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BeeCycle/MapViewController.swift"
-            timestampString = "568220626.328228"
+            timestampString = "568226964.75251"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "createMapPin(mapItem:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -232,11 +230,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BeeCycle/MapViewController.swift"
-            timestampString = "568220626.328644"
+            timestampString = "568226964.7531199"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "201"
-            endingLineNumber = "201"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
             landmarkName = "addBottomSheetView()"
             landmarkType = "7">
          </BreakpointContent>
@@ -248,7 +246,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BeeCycle/CycleStreetService.swift"
-            timestampString = "568220626.328925"
+            timestampString = "568226964.753438"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "30"
@@ -264,7 +262,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BeeCycle/CycleStreetService.swift"
-            timestampString = "568220626.3289779"
+            timestampString = "568226964.753652"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
@@ -280,7 +278,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BeeCycle/CycleStreetService.swift"
-            timestampString = "568220626.329023"
+            timestampString = "568226964.753701"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "45"
@@ -295,28 +293,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BeeCycle/MapViewController.swift"
-            timestampString = "568220626.329067"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
-            landmarkName = "addBottomSheetView()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "BeeCycle/CycleStreetService.swift"
-            timestampString = "568220626.3293051"
+            timestampString = "568226964.753747"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "requestCycleStreet(coordinates:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -328,27 +310,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BeeCycle/MapViewController.swift"
-            timestampString = "568220626.329348"
+            timestampString = "568226964.753788"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "204"
-            endingLineNumber = "204"
-            landmarkName = "addBottomSheetView()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BeeCycle/MapViewController.swift"
-            timestampString = "568220626.3295979"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
             landmarkName = "showResultDetails(journeyPlannerResult:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -360,11 +326,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BeeCycle/MapViewController.swift"
-            timestampString = "568220626.329904"
+            timestampString = "568226964.754069"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "196"
-            endingLineNumber = "196"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
             landmarkName = "addBottomSheetView()"
             landmarkType = "7">
          </BreakpointContent>
@@ -376,11 +342,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BeeCycle/MapViewController.swift"
-            timestampString = "568220626.330132"
+            timestampString = "568226964.75433"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "centerMapOnLocation(location:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -392,13 +358,141 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BeeCycle/MapViewController.swift"
-            timestampString = "568220626.330353"
+            timestampString = "568226964.754632"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
-            landmarkName = "zoomToUserLocation()"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BeeCycle/MapViewController.swift"
+            timestampString = "568226964.754876"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BeeCycle/MapViewController.swift"
+            timestampString = "568226964.755118"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "198"
+            endingLineNumber = "198"
+            landmarkName = "addBottomSheetView()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BeeCycle.MapViewController.addBottomSheetView() -&gt; ()"
+                  moduleName = "BeeCycle"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aoife.mclaughlin/Documents/aoife/Bee-Cycle/BeeCycle/MapViewController.swift"
+                  timestampString = "568226965.0367841"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "198"
+                  endingLineNumber = "198"
+                  offsetFromSymbolStart = "1366">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (BeeCycle.JourneyPlannerResult) -&gt; () in BeeCycle.MapViewController.addBottomSheetView() -&gt; ()"
+                  moduleName = "BeeCycle"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aoife.mclaughlin/Documents/aoife/Bee-Cycle/BeeCycle/MapViewController.swift"
+                  timestampString = "568226965.0390019"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "199"
+                  endingLineNumber = "199"
+                  offsetFromSymbolStart = "34">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BeeCycle/MapViewController.swift"
+            timestampString = "568226964.755398"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BeeCycle/CycleStreetService.swift"
+            timestampString = "568226964.755633"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "requestCycleStreet(coordinates:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BeeCycle.CycleStreetService.requestCycleStreet(coordinates: Swift.String, completion: (BeeCycle.JourneyPlannerResult) -&gt; ()) -&gt; ()"
+                  moduleName = "BeeCycle"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aoife.mclaughlin/Documents/aoife/Bee-Cycle/BeeCycle/CycleStreetService.swift"
+                  timestampString = "568226965.048682"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "854">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in BeeCycle.CycleStreetService.requestCycleStreet(coordinates: Swift.String, completion: (BeeCycle.JourneyPlannerResult) -&gt; ()) -&gt; ()"
+                  moduleName = "BeeCycle"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aoife.mclaughlin/Documents/aoife/Bee-Cycle/BeeCycle/CycleStreetService.swift"
+                  timestampString = "568226965.0503"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "91">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

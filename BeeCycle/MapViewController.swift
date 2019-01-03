@@ -11,7 +11,7 @@ import MapKit
 
 protocol MapViewControllerDelegate : class
 {
-     func mapViewDidSelectSearch()
+    func mapViewDidSelectSearch(mapView: MKMapView?)
     
 }
 
@@ -42,12 +42,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
         super.viewDidLoad()
         mapView.delegate = self
         locationService.delegate = self
-        //        mapView.register(CycleLockerView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
-//        createAnnotations()
         mapView.showsUserLocation = true
         mapView.showsCompass = false
-//        mapView.showAnnotations(annotations as! [MKAnnotation], animated: true)
-        
+        print(self.locationService.userLocation!.coordinate)
         if ((mapItem) != nil)
         {
             self.createMapPin(mapItem: mapItem!)
@@ -58,8 +55,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
     }
     
     @IBAction func searchTapped(_ sender: Any) {
-        delegate?.mapViewDidSelectSearch()
-//        self.coordinator?.displaySearch(fromTapped: true, toTapped: false)
+        delegate?.mapViewDidSelectSearch(mapView: self.mapView)
     }
     
     
@@ -124,8 +120,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
     
     func showResultDetails(journeyPlannerResult: JourneyPlannerResult)
     {
-        let startName = (journeyPlannerResult.startName != nil) ? journeyPlannerResult.startName! : ""
-        self.bottomSheetViewController.directionsLabel.text = "Current Location to \(startName)"
+        let journeyName = (journeyPlannerResult.startName != nil) ? journeyPlannerResult.name! : ""
+        self.bottomSheetViewController.directionsLabel.text = journeyName
         let durationString = String(journeyPlannerResult.duration!)
         let durationMinString = journeyPlannerResult.duration! > 1 ? "\(durationString) mins" : "\(durationString) min"
         self.bottomSheetViewController.durationLabel.text = durationMinString
@@ -176,7 +172,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         routeDirections.removeAll()
         hideBottomSheetView()
-        //        addBottomSheetView()
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
@@ -221,7 +216,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
     
     func directionInCurrentMap(to destination: CLLocationCoordinate2D)
     {
-        //        addBottomSheetView()
         let request = MKDirectionsRequest()
         let placemark = MKPlacemark(coordinate: destination)
         let cycleLockerMapItem = MKMapItem(placemark: placemark)
@@ -284,9 +278,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
     
     func createStringFromCoordinate(coordinate: CLLocationCoordinate2D) -> String
     {
-        let lngString = String(format: "%f", coordinate.latitude)
-        let latString = String(format: "%f", coordinate.longitude)
-        return "\(latString),\(lngString)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        let latString = String(format: "%f", coordinate.latitude)
+        let lngString = String(format: "%f", coordinate.longitude)
+        return "\(lngString),\(latString)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
     }
     
 }

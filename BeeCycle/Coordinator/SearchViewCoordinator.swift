@@ -14,7 +14,8 @@ class SearchViewCoordinator: Coordinator {
     private let presenter: UINavigationController
     private var locationSearchTable: LocationSearchTable?
     private var searchViewCoordinator: SearchViewCoordinator?
-    private var mapViewCoordinator : MapPinCoordinator?
+    var mapView: MKMapView?
+    var mapPinCoordinator : MapPinCoordinator?
 
     
     
@@ -25,6 +26,7 @@ class SearchViewCoordinator: Coordinator {
     
     func start() {
         let locationSearchTable = LocationSearchTable()
+        locationSearchTable.mapView = mapView
         presenter.pushViewController(locationSearchTable, animated: true)
         self.locationSearchTable = locationSearchTable
         self.locationSearchTable?.delegate = self
@@ -36,6 +38,6 @@ extension SearchViewCoordinator : LocationSearchDelegate
     func didSelectResult(mapItem: MKMapItem) {
         let mapPinCoordinator = MapPinCoordinator(presenter:presenter, mapItem:mapItem)
         mapPinCoordinator.start()
-        self.mapViewCoordinator = mapPinCoordinator
+        self.mapPinCoordinator = mapPinCoordinator
     }
 }
