@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import CoreLocation
+import MapKit
 
 class CycleStreetService: NSObject {
     let decoder = JSONDecoder()
@@ -21,10 +22,12 @@ class CycleStreetService: NSObject {
     var latDoubleArray : [Double] = []
     var lngDoubleArray : [Double] = []
     var coordinateArray: [CLLocationCoordinate2D] = []
+    
 
-    func requestCycleStreet(completion: @escaping( _ journeyPlannerResult: JourneyPlannerResult) -> ())
+
+    func requestCycleStreet(coordinates: String, completion: @escaping( _ journeyPlannerResult: JourneyPlannerResult) -> ())
     {
-        let urlString = String(format: "https://www.cyclestreets.net/api/journey.json?key=%@&itinerarypoints=%@&plan=%@", self.key, self.coordinates, self.typeCycle)
+        let urlString = String(format: "https://www.cyclestreets.net/api/journey.json?key=%@&itinerarypoints=%@&plan=%@", self.key, coordinates, self.typeCycle)
         print(urlString)
         
         guard let cycleStreetUrl = URL(string: urlString) else {
@@ -40,10 +43,12 @@ class CycleStreetService: NSObject {
             print("Successful")
             let responseData = Data(response.data!)
             let myResponse = try! JSONDecoder().decode(Welcome.self, from: responseData)
-            print(myResponse)
-            print(myResponse.marker)
-            print(myResponse.waypoint)
+//            print(myResponse)
+//            print(myResponse.marker)
+//            print(myResponse.waypoint)
             let myAttributes = myResponse.marker[0].attributes
+            let startName = myAttributes["start"]
+            let endName = myAttributes["finish"]
             let startLat = Double(myAttributes["start_latitude"]!)
             let startLng = Double(myAttributes["start_longitude"]!)
             let endLat = Double(myAttributes["finish_latitude"]!)
@@ -63,7 +68,7 @@ class CycleStreetService: NSObject {
             self.createDoubleCoordinateArray()
             self.createCoordinateArray()
             print(self.createCoordinateArray())
-            let result = JourneyPlannerResult(polylineCoordinates: self.coordinateArray)
+            let result = JourneyPlannerResult(polylineCoordinates: self.coordinateArray, startName: startName!, endName: endName!)
             completion(result)
 
             

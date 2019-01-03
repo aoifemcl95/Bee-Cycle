@@ -8,14 +8,13 @@
 
 import UIKit
 import CoreLocation
+import MapKit
 
 class RouteParameter: NSObject {
-    var startCoordinate: CLLocationCoordinate2D
-    var endCoordinate: CLLocationCoordinate2D
+    var destination: MKMapItem
     
-    init(startCoordinate: CLLocationCoordinate2D, endCoordinate: CLLocationCoordinate2D)
+    init(destination: MKMapItem)
     {
-         self.startCoordinate = startCoordinate
-        self.endCoordinate = endCoordinate
+        self.destination = destination
     }
 }

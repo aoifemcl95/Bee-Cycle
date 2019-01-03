@@ -64,11 +64,10 @@ class LocationSearchTable: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             let mapItem = matchingItems[indexPath.row]
             delegate?.didSelectResult(mapItem: mapItem)
+        
    
     }
     
-    
-
 }
 
 extension LocationSearchTable : UISearchBarDelegate

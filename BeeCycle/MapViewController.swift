@@ -33,17 +33,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
     var hasGotRegion = false
     weak var mapItem = MKMapItem()
     var cycleLockerArray = [CycleLocker]()
-    var journeyPlannerResult = JourneyPlannerResult(polylineCoordinates: [])
+//    var journeyPlannerResult = JourneyPlannerResult(polylineCoordinates: [], startName: "", endName: "")
     weak var coordinator: MainCoordinator?
     var routeDirections = ""
     var bottomSheetViewController = BottomSheetViewController.init(nibName: "BottomSheetViewController", bundle: nil)
     weak var delegate: MapViewControllerDelegate?
     weak var panelDelegate: MapViewTitleDelegate?
+    var journeyOrigin = MKMapItem()
+    var journeyDest = MKMapItem()
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var locateMe: UIButton!
     
     @IBOutlet weak var searchButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,14 +57,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
         mapView.showsUserLocation = true
         mapView.showsCompass = false
 //        mapView.showAnnotations(annotations as! [MKAnnotation], animated: true)
-        cycleStreetService.requestCycleStreet { (journeyPlannerResult) in
-            self.createPolyline()
-        }
+        
         if ((mapItem) != nil)
         {
             self.createMapPin(mapItem: mapItem!)
             self.centerMapOnLocation(location: (mapItem?.placemark.location)!)
-            configurePanel()
+            addBottomSheetView()
         }
         
 //        configurePanel()
@@ -80,7 +81,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
         panelConfiguration.panelSize = .custom(400)
         let panelOptionsVC = PanelOptionsViewController()
         self.panelDelegate = panelOptionsVC
-        panelDelegate?.configurePanelTitle(mapItem: mapItem!)
+//        panelDelegate?.configurePanelTitle(mapItem: mapItem!)
         
         panelManager.addPanel(with: panelConfiguration, target: self)
     }
@@ -139,9 +140,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
     
     func createPolyline()
     {
-        let coordinates = cycleStreetService.coordinateArray
-        let polyline = MKPolyline(coordinates: coordinates, count: coordinates.count)
+        let coordinatesArray = cycleStreetService.coordinateArray
+        let polyline = MKPolyline(coordinates: coordinatesArray, count: coordinatesArray.count)
         mapView.add(polyline, level: MKOverlayLevel.aboveRoads)
+    }
+    
+    func showResultDetails(journeyPlannerResult: JourneyPlannerResult)
+    {
+        self.bottomSheetViewController.directionsLabel.text = journeyPlannerResult.startName
+        self.bottomSheetViewController.reloadInputViews()
     }
     
     func zoomToUserLocation () {
@@ -205,6 +212,19 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
     // cycle locker methods - bottom view controller
     
     func addBottomSheetView() {
+        if (mapItem != nil && self.locationService.userLocation != nil)
+        {
+//            let locationString = createStringFromCoordinate(coordinate: (self.locationService.userLocation?.coordinate)!)
+            let locationString = "0.117950,52.205302"
+            let destinationCoordString = createStringFromCoordinate(coordinate: (mapItem?.placemark.coordinate)!)
+            let coordinateString = "\(locationString)|\(destinationCoordString)"
+            let urlCoordinateString = coordinateString.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+            cycleStreetService.requestCycleStreet(coordinates: urlCoordinateString!) { (journeyPlannerResult: JourneyPlannerResult) in
+                self.createPolyline()
+                self.showResultDetails(journeyPlannerResult: journeyPlannerResult)
+            }
+        }
+
         self.addChildViewController(bottomSheetViewController)
         self.view.addSubview(bottomSheetViewController.view)
         bottomSheetViewController.didMove(toParentViewController: self)
@@ -279,6 +299,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
                 self.bottomSheetViewController.showDurationOfRoute(timeInMinutes: minutes)
             }
         }
+    }
+    
+    func createStringFromCoordinate(coordinate: CLLocationCoordinate2D) -> String
+    {
+        let lngString = String(format: "%f", coordinate.latitude)
+        let latString = String(format: "%f", coordinate.longitude)
+        return "\(latString),\(lngString)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
     }
     
 }

@@ -11,9 +11,13 @@ import MapKit
 
 class JourneyPlannerResult: NSObject {
     var polylineCoordinates: [CLLocationCoordinate2D]
+    var startName: String?
+    var endName: String?
     
-    init(polylineCoordinates: [CLLocationCoordinate2D])
+    init(polylineCoordinates: [CLLocationCoordinate2D], startName: String?, endName: String?)
     {
         self.polylineCoordinates = polylineCoordinates
+        self.startName = startName
+        self.endName = endName
     }
 }

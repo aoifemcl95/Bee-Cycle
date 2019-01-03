@@ -27,6 +27,7 @@ class PanelOptionsViewController: UIViewController, Panelable {
 
 }
 
+
 extension PanelOptionsViewController : MapViewTitleDelegate
 {
     func configurePanelTitle(mapItem: MKMapItem) {
