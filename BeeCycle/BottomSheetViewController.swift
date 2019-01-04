@@ -26,6 +26,9 @@ class BottomSheetViewController: UIViewController, UITableViewDataSource, UITabl
         self.durationLabel.text = durationMinString
         let gesture = UIPanGestureRecognizer.init(target: self, action: #selector(BottomSheetViewController.panGesture(recognizer:)))
         self.contentView.addGestureRecognizer(gesture)
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.register(UINib(nibName: "DirectionTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         super.viewDidLoad()
     }
     
@@ -41,18 +44,6 @@ class BottomSheetViewController: UIViewController, UITableViewDataSource, UITabl
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-//    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-//        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-//        Bundle.main.loadNibNamed("BottomSheetViewController", owner: self, options: nil)
-//        let gesture = UIPanGestureRecognizer.init(target: self, action: #selector(BottomSheetViewController.panGesture(recognizer:)))
-//        contentView.addGestureRecognizer(gesture)
-//    }
-    
-//    required init?(coder aDecoder: NSCoder) {
-//        self.journeyPlannerResult = journeyPlannerResult
-//        super.init(coder: aDecoder)
-//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -119,8 +110,8 @@ class BottomSheetViewController: UIViewController, UITableViewDataSource, UITabl
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = DirectionTableViewCell()
-        cell = tableView.dequeueReusableCell(withIdentifier: "directionCell") as! DirectionTableViewCell
-        cell.updateCellForJourneyLeg(journeyPlannerResult.journeyLegs[indexPath.row])
+        cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! DirectionTableViewCell
+        cell.updateCellForJourneyLeg(journeyLeg: journeyPlannerResult.journeyLegs[indexPath.row])
         return cell
     }
     
