@@ -27,6 +27,8 @@
 		5A2A3F5621077D91000FD3F8 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2A3F5421077D91000FD3F8 /* BottomSheetViewController.swift */; };
 		5A2A3F5721077D91000FD3F8 /* BottomSheetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A2A3F5521077D91000FD3F8 /* BottomSheetViewController.xib */; };
 		5A4875EF21DF620C0075792E /* JourneyLeg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4875EE21DF620C0075792E /* JourneyLeg.swift */; };
+		5A4875F221DFBC520075792E /* DirectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4875F021DFBC520075792E /* DirectionTableViewCell.swift */; };
+		5A4875F321DFBC520075792E /* DirectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A4875F121DFBC520075792E /* DirectionTableViewCell.xib */; };
 		5A99A2B8215E28F600B31E74 /* LocationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A99A2B7215E28F600B31E74 /* LocationProtocol.swift */; };
 		5A99A2BA215E299800B31E74 /* RoutingParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A99A2B9215E299800B31E74 /* RoutingParameter.swift */; };
 		5A99A2BC215E2A9400B31E74 /* JourneyPlannerResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A99A2BB215E2A9400B31E74 /* JourneyPlannerResult.swift */; };
@@ -92,6 +94,8 @@
 		5A2A3F5421077D91000FD3F8 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		5A2A3F5521077D91000FD3F8 /* BottomSheetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomSheetViewController.xib; sourceTree = "<group>"; };
 		5A4875EE21DF620C0075792E /* JourneyLeg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyLeg.swift; sourceTree = "<group>"; };
+		5A4875F021DFBC520075792E /* DirectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionTableViewCell.swift; sourceTree = "<group>"; };
+		5A4875F121DFBC520075792E /* DirectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DirectionTableViewCell.xib; sourceTree = "<group>"; };
 		5A99A2B7215E28F600B31E74 /* LocationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProtocol.swift; sourceTree = "<group>"; };
 		5A99A2B9215E299800B31E74 /* RoutingParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingParameter.swift; sourceTree = "<group>"; };
 		5A99A2BB215E2A9400B31E74 /* JourneyPlannerResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyPlannerResult.swift; sourceTree = "<group>"; };
@@ -169,6 +173,8 @@
 			isa = PBXGroup;
 			children = (
 				5AB3C3F72188805D0031974E /* JourneySelection.swift */,
+				5A4875F021DFBC520075792E /* DirectionTableViewCell.swift */,
+				5A4875F121DFBC520075792E /* DirectionTableViewCell.xib */,
 				19E546E520F411B5000B3C35 /* AppDelegate.swift */,
 				19E24170211B5E0700D29BBC /* CycleStreetService.swift */,
 				19D8CDE82141B3180000316E /* RouteParameter.swift */,
@@ -371,6 +377,7 @@
 				5A2A3F5721077D91000FD3F8 /* BottomSheetViewController.xib in Resources */,
 				5A99A2C0215E63C200B31E74 /* RoutePlanViewController.xib in Resources */,
 				1941F463212F33B200D19A70 /* LocationSearchResultCell.xib in Resources */,
+				5A4875F321DFBC520075792E /* DirectionTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +476,7 @@
 				19761C24212F2AFC00E5CC51 /* LocationSearchTable.swift in Sources */,
 				5A99A2BC215E2A9400B31E74 /* JourneyPlannerResult.swift in Sources */,
 				19E24171211B5E0700D29BBC /* CycleStreetService.swift in Sources */,
+				5A4875F221DFBC520075792E /* DirectionTableViewCell.swift in Sources */,
 				1941F462212F33B200D19A70 /* LocationSearchResultCell.swift in Sources */,
 				5A2A3F1921020A64000FD3F8 /* LocationService.swift in Sources */,
 				5AD2242220F65AD0000A8112 /* CycleService.swift in Sources */,

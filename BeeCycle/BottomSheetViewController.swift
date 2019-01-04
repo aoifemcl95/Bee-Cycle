@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BottomSheetViewController: UIViewController{
+class BottomSheetViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
 
     @IBOutlet weak var takeMeButton: UIButton!
@@ -113,12 +113,15 @@ class BottomSheetViewController: UIViewController{
     
     
     // Table View delegate methods
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        <#code#>
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        <#code#>
-//    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return journeyPlannerResult.journeyLegs.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = DirectionTableViewCell()
+        cell = tableView.dequeueReusableCell(withIdentifier: "directionCell") as! DirectionTableViewCell
+        cell.updateCellForJourneyLeg(journeyPlannerResult.journeyLegs[indexPath.row])
+        return cell
+    }
     
 }
