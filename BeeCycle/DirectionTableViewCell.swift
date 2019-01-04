@@ -30,8 +30,25 @@ class DirectionTableViewCell: UITableViewCell {
     
     func updateCellForJourneyLeg(journeyLeg: JourneyLeg)
     {
-         directionLabel.text = journeyLeg.turn
-        distanceLabel.text = journeyLeg.distance
+        if (journeyLeg.turn == "turn right")
+        {
+            directionImageView.image = UIImage(named: "turn-right")
+        }
+        else if (journeyLeg.turn == "turn left")
+        {
+            directionImageView.image = UIImage(named: "turn-left")
+        }
+        else if (journeyLeg.turn == "straight on")
+        {
+            directionImageView.image = UIImage(named: "straight-on")
+        }
+        else
+        {
+            directionImageView.image = nil
+        }
+        directionLabel.text = journeyLeg.turn
+        let distanceString = journeyLeg.distance
+        distanceLabel.text = (distanceString != nil) ? "\(distanceString!) metres" : ""
     }
     
 }

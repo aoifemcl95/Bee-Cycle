@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14306.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14278.2"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,17 +19,21 @@
                 <rect key="frame" x="0.0" y="0.0" width="363" height="95.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hgB-X6-KZl">
-                        <rect key="frame" x="16" y="25" width="47" height="44"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hgB-X6-KZl">
+                        <rect key="frame" x="16" y="25" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="Xx5-tP-zcQ"/>
+                            <constraint firstAttribute="width" secondItem="hgB-X6-KZl" secondAttribute="height" multiplier="1:1" id="o5r-c5-Dyx"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09j-gn-sqG">
-                        <rect key="frame" x="135" y="54" width="42" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09j-gn-sqG">
+                        <rect key="frame" x="61" y="29" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhT-sI-Avk">
-                        <rect key="frame" x="135" y="25" width="42" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhT-sI-Avk">
+                        <rect key="frame" x="61" y="4" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -37,10 +41,13 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="hgB-X6-KZl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="4NH-zh-qSf"/>
-                    <constraint firstItem="qhT-sI-Avk" firstAttribute="top" secondItem="hgB-X6-KZl" secondAttribute="top" id="YyO-sv-KrE"/>
+                    <constraint firstItem="09j-gn-sqG" firstAttribute="top" secondItem="qhT-sI-Avk" secondAttribute="bottom" constant="4" id="P8f-uU-Wic"/>
                     <constraint firstItem="hgB-X6-KZl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="Zns-fy-jaS"/>
-                    <constraint firstAttribute="bottom" secondItem="hgB-X6-KZl" secondAttribute="bottom" constant="26.5" id="ZuG-V1-iZP"/>
-                    <constraint firstItem="09j-gn-sqG" firstAttribute="bottom" secondItem="hgB-X6-KZl" secondAttribute="bottom" id="zKO-B9-fWd"/>
+                    <constraint firstAttribute="bottom" secondItem="hgB-X6-KZl" secondAttribute="bottom" constant="16" id="ZuG-V1-iZP"/>
+                    <constraint firstItem="qhT-sI-Avk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="c6j-ys-G8Q"/>
+                    <constraint firstAttribute="bottom" secondItem="09j-gn-sqG" secondAttribute="bottom" id="fQA-0U-i8F"/>
+                    <constraint firstItem="09j-gn-sqG" firstAttribute="leading" secondItem="qhT-sI-Avk" secondAttribute="leading" id="pxt-hg-mbv"/>
+                    <constraint firstItem="qhT-sI-Avk" firstAttribute="leading" secondItem="hgB-X6-KZl" secondAttribute="trailing" constant="20" id="zzW-na-eyH"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

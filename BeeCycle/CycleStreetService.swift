@@ -68,7 +68,6 @@ class CycleStreetService: NSObject {
             }
             self.createDoubleCoordinateArray()
             self.createCoordinateArray()
-            print(self.createCoordinateArray())
             
             
             for marker in journeyPlanResponse.marker
