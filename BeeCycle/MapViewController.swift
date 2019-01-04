@@ -193,7 +193,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
         if (mapItem != nil && self.locationService.userLocation != nil)
         {
 //            let locationString = createStringFromCoordinate(coordinate: (self.locationService.userLocation?.coordinate)!)
-            let locationString = "0.117950,52.205302"
+            let locationString = "-0.13370000,51.50998000"
             let destinationCoordString = createStringFromCoordinate(coordinate: (mapItem?.placemark.coordinate)!)
             let coordinateString = "\(locationString)|\(destinationCoordString)"
             let urlCoordinateString = coordinateString.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)

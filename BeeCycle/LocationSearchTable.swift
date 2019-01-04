@@ -76,7 +76,6 @@ extension LocationSearchTable : UISearchBarDelegate
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard let searchBarText = searchBar.text else { return }
         let request = MKLocalSearchRequest()
-        request.region = (mapView?.region)!
         request.naturalLanguageQuery = searchBarText
         let search = MKLocalSearch(request: request)
         search.start { (response, error) in
