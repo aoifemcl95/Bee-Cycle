@@ -22,6 +22,8 @@ class CycleStreetService: NSObject {
     var latDoubleArray : [Double] = []
     var lngDoubleArray : [Double] = []
     var coordinateArray: [CLLocationCoordinate2D] = []
+    var attributeArray: [[String: String]] = []
+    var journeyLegArray: [JourneyLeg] = []
     
 
 
@@ -42,23 +44,20 @@ class CycleStreetService: NSObject {
             }
             print("Successful")
             let responseData = Data(response.data!)
-            let myResponse = try! JSONDecoder().decode(Welcome.self, from: responseData)
-//            print(myResponse)
-//            print(myResponse.marker)
-//            print(myResponse.waypoint)
-            let myAttributes = myResponse.marker[0].attributes
-            let startName = myAttributes["start"]
-            let endName = myAttributes["finish"]
-            let name = myAttributes["name"]
-            let duration = Int(Double(myAttributes["time"]!)!/60)
-            let startLat = Double(myAttributes["start_latitude"]!)
-            let startLng = Double(myAttributes["start_longitude"]!)
-            let endLat = Double(myAttributes["finish_latitude"]!)
-            let endLng = Double(myAttributes["finish_longitude"]!)
+            let journeyPlanResponse = try! JSONDecoder().decode(JourneyPlanResult.self, from: responseData)
+            let fullJourneyAttributes = journeyPlanResponse.marker[0].attributes
+            let startName = fullJourneyAttributes["start"]
+            let endName = fullJourneyAttributes["finish"]
+            let name = fullJourneyAttributes["name"]
+            let duration = Int(Double(fullJourneyAttributes["time"]!)!/60)
+            let startLat = Double(fullJourneyAttributes["start_latitude"]!)
+            let startLng = Double(fullJourneyAttributes["start_longitude"]!)
+            let endLat = Double(fullJourneyAttributes["finish_latitude"]!)
+            let endLng = Double(fullJourneyAttributes["finish_longitude"]!)
             let startCoord = CLLocationCoordinate2D(latitude: startLat ?? 0, longitude: startLng ?? 0)
             let endCoord = CLLocationCoordinate2D(latitude: endLat ?? 0 , longitude: endLng ?? 0)
           
-            let coordinatesString = myAttributes["coordinates"] as? String
+            let coordinatesString = fullJourneyAttributes["coordinates"] as? String
             let coordinates = coordinatesString?.components(separatedBy: " ")
 
             for coordinate in coordinates!
@@ -70,7 +69,26 @@ class CycleStreetService: NSObject {
             self.createDoubleCoordinateArray()
             self.createCoordinateArray()
             print(self.createCoordinateArray())
-            let result = JourneyPlannerResult(polylineCoordinates: self.coordinateArray, startName: startName!, endName: endName!, duration: duration, name: name)
+            
+            
+            for marker in journeyPlanResponse.marker
+            {
+                self.attributeArray.append(marker.attributes)
+            }
+            
+            for attribute in self.attributeArray
+            {
+                let turn = attribute["turn"]
+                let distance = attribute["distance"]
+                let duration = Int(attribute["time"]!)
+                let name = attribute["name"]
+                
+                let journeyLeg = JourneyLeg(turn: turn, distance: distance, duration: duration, name: name)
+                self.journeyLegArray.append(journeyLeg)
+            }
+            
+            
+            let result = JourneyPlannerResult(polylineCoordinates: self.coordinateArray, startName: startName!, endName: endName!, duration: duration, name: name, journeyLegs: self.journeyLegArray)
             completion(result)
 
             
@@ -102,7 +120,7 @@ class CycleStreetService: NSObject {
         return coordinateArray
     }
 }
-struct Welcome: Codable {
+struct JourneyPlanResult: Codable {
     let marker: [Marker]
     let waypoint: [Waypoint]
 }

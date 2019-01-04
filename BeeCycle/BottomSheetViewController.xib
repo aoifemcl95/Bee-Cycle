@@ -15,6 +15,7 @@
                 <outlet property="contentView" destination="raI-JW-cRd" id="Kr2-co-fjq"/>
                 <outlet property="directionsLabel" destination="xNd-lQ-p4p" id="udh-j6-Zrk"/>
                 <outlet property="durationLabel" destination="28N-a8-ng4" id="hf3-wA-qDw"/>
+                <outlet property="tableView" destination="45N-12-wbm" id="fc1-mZ-N1i"/>
                 <outlet property="takeMeButton" destination="f5j-vt-sy3" id="MBJ-3C-b7g"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -52,6 +53,10 @@
                                 <action selector="takeMeTapped:" destination="-1" eventType="touchUpInside" id="deS-ru-bq7"/>
                             </connections>
                         </button>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="45N-12-wbm">
+                            <rect key="frame" x="0.0" y="153" width="375" height="494"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </tableView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -59,10 +64,14 @@
                         <constraint firstAttribute="trailing" secondItem="28N-a8-ng4" secondAttribute="trailing" id="Ivs-4E-aJZ"/>
                         <constraint firstItem="xNd-lQ-p4p" firstAttribute="leading" secondItem="raI-JW-cRd" secondAttribute="leading" id="Oyo-zg-hxT"/>
                         <constraint firstItem="f5j-vt-sy3" firstAttribute="leading" secondItem="raI-JW-cRd" secondAttribute="leading" constant="8" id="PNU-nY-2Di"/>
+                        <constraint firstItem="45N-12-wbm" firstAttribute="leading" secondItem="raI-JW-cRd" secondAttribute="leading" id="UQ1-Fh-BhU"/>
                         <constraint firstAttribute="trailing" secondItem="xNd-lQ-p4p" secondAttribute="trailing" id="Ujh-yR-LQc"/>
+                        <constraint firstAttribute="trailing" secondItem="45N-12-wbm" secondAttribute="trailing" id="V7K-er-ajs"/>
+                        <constraint firstItem="45N-12-wbm" firstAttribute="top" secondItem="f5j-vt-sy3" secondAttribute="bottom" constant="8" id="h1o-c0-fw6"/>
                         <constraint firstAttribute="trailing" secondItem="f5j-vt-sy3" secondAttribute="trailing" constant="8" id="mMp-73-CtW"/>
                         <constraint firstItem="28N-a8-ng4" firstAttribute="top" secondItem="raI-JW-cRd" secondAttribute="top" constant="8" id="nUw-5z-Fza"/>
                         <constraint firstItem="28N-a8-ng4" firstAttribute="leading" secondItem="raI-JW-cRd" secondAttribute="leading" id="q4L-fg-KrB"/>
+                        <constraint firstAttribute="bottom" secondItem="45N-12-wbm" secondAttribute="bottom" id="ueq-Km-u9H"/>
                         <constraint firstItem="xNd-lQ-p4p" firstAttribute="top" secondItem="28N-a8-ng4" secondAttribute="bottom" constant="8" id="wL9-I5-uWk"/>
                     </constraints>
                 </view>

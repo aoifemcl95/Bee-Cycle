@@ -8,27 +8,52 @@
 
 import UIKit
 
-class BottomSheetViewController: UIViewController {
+class BottomSheetViewController: UIViewController{
+    
 
     @IBOutlet weak var takeMeButton: UIButton!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var directionsLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    var journeyPlannerResult: JourneyPlannerResult
+    
     override func viewDidLoad() {
+        let journeyName = (journeyPlannerResult.startName != nil) ? journeyPlannerResult.name! : ""
+        self.directionsLabel.text = journeyName
+        let durationString = String(journeyPlannerResult.duration!)
+        let durationMinString = journeyPlannerResult.duration! > 1 ? "\(durationString) mins" : "\(durationString) min"
+        self.durationLabel.text = durationMinString
+        let gesture = UIPanGestureRecognizer.init(target: self, action: #selector(BottomSheetViewController.panGesture(recognizer:)))
+        self.contentView.addGestureRecognizer(gesture)
         super.viewDidLoad()
     }
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        Bundle.main.loadNibNamed("BottomSheetViewController", owner: self, options: nil)
-        let gesture = UIPanGestureRecognizer.init(target: self, action: #selector(BottomSheetViewController.panGesture(recognizer:) ))
-        contentView.addGestureRecognizer(gesture)
+    init(journeyPlannerResult: JourneyPlannerResult)
+    {
+        self.journeyPlannerResult = journeyPlannerResult
+        super.init(nibName: nil, bundle: nil)
+        
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        fatalError("init(coder:) has not been implemented")
     }
     
+    
+//    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+//        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+//        Bundle.main.loadNibNamed("BottomSheetViewController", owner: self, options: nil)
+//        let gesture = UIPanGestureRecognizer.init(target: self, action: #selector(BottomSheetViewController.panGesture(recognizer:)))
+//        contentView.addGestureRecognizer(gesture)
+//    }
+    
+//    required init?(coder aDecoder: NSCoder) {
+//        self.journeyPlannerResult = journeyPlannerResult
+//        super.init(coder: aDecoder)
+//    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -85,5 +110,15 @@ class BottomSheetViewController: UIViewController {
     @IBAction func takeMeTapped(_ sender: Any) {
         
     }
+    
+    
+    // Table View delegate methods
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        <#code#>
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        <#code#>
+//    }
     
 }

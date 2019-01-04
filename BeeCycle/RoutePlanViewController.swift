@@ -23,9 +23,6 @@ class RoutePlanViewController: UIViewController, UISearchBarDelegate, LocationSe
     @IBOutlet weak var toButton: UIButton!
     @IBOutlet weak var toLabel: UILabel!
     @IBOutlet weak var toView: UIView!
-//    var fromRoutingParameter: MKMapItem
-//    var toRoutingParamter: MKMapItem
-//    var journeySelection: JourneySelection = JourneySelection(o)
     var locationSearchTable = LocationSearchTable()
     var resultSearchController: UISearchController? = nil
     var fromTapped: Bool = false
@@ -40,7 +37,6 @@ class RoutePlanViewController: UIViewController, UISearchBarDelegate, LocationSe
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        coordinator = MainCoordinator(navigationController: navController)
         self.fromLabel.text = mapItem.placemark.name
         locationService.delegate = self
     }
@@ -68,7 +64,6 @@ class RoutePlanViewController: UIViewController, UISearchBarDelegate, LocationSe
         self.fromTapped = true
         self.toTapped = false
         delegate?.routePlanDidSelectSearch()
-//        self.coordinator?.displaySearch(fromTapped: self.fromTapped, toTapped: self.toTapped)
         
     }
     
@@ -76,7 +71,6 @@ class RoutePlanViewController: UIViewController, UISearchBarDelegate, LocationSe
         self.toTapped = true
         self.fromTapped = false
         delegate?.routePlanDidSelectSearch()
-//        self.coordinator?.displaySearch(fromTapped: self.fromTapped, toTapped: self.toTapped)
     }
     
     func didUpdateLocation() {
