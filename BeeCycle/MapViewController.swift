@@ -45,12 +45,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
         mapView.showsUserLocation = true
         mapView.showsCompass = false
         print(self.locationService.userLocation!.coordinate)
-        if ((mapItem) != nil)
-        {
-            self.createMapPin(mapItem: mapItem!)
-            self.centerMapOnLocation(location: (mapItem?.placemark.location)!)
-            self.addBottomSheetView()
-        }
+
         
     }
     
@@ -107,6 +102,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
     func didUpdateLocation() {
         if !hasGotRegion{
             zoomToUserLocation()
+            if ((mapItem) != nil)
+            {
+                self.createMapPin(mapItem: mapItem!)
+                self.centerMapOnLocation(location: (mapItem?.placemark.location)!)
+                self.addBottomSheetView()
+            }
             hasGotRegion = true
         }
     }
@@ -192,8 +193,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
         
         if (mapItem != nil && self.locationService.userLocation != nil)
         {
-//            let locationString = createStringFromCoordinate(coordinate: (self.locationService.userLocation?.coordinate)!)
-            let locationString = "-0.13370000,51.50998000"
+            let locationString = createStringFromCoordinate(coordinate: (self.locationService.userLocation?.coordinate)!)
+//            let locationString = "-0.13370000,51.50998000"
             let destinationCoordString = createStringFromCoordinate(coordinate: (mapItem?.placemark.coordinate)!)
             let coordinateString = "\(locationString)|\(destinationCoordString)"
             let urlCoordinateString = coordinateString.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)

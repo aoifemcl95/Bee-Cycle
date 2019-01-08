@@ -29,7 +29,6 @@ class CycleService: NSObject {
                     guard let jsonArray = json as? [[String: Any]] else {
                         return
                     }
-                    print(jsonArray)
                     
                     for dic in jsonArray {
                         guard let lockerId = dic["id"] as? String else { return }
@@ -44,7 +43,6 @@ class CycleService: NSObject {
 
                         }
 
-                    print(cycleLockerArray)
                         
                     }
                 
