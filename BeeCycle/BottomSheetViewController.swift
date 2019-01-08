@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class BottomSheetViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
@@ -17,9 +18,10 @@ class BottomSheetViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var directionsLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     var journeyPlannerResult: JourneyPlannerResult
+    var mapItem: MKMapItem
     
     override func viewDidLoad() {
-        let journeyName = (journeyPlannerResult.startName != nil) ? journeyPlannerResult.name! : ""
+        let journeyName = "Current Location to \(String(describing: mapItem.placemark.name!))"
         self.directionsLabel.text = journeyName
         let durationString = String(journeyPlannerResult.duration!)
         let durationMinString = journeyPlannerResult.duration! > 1 ? "\(durationString) mins" : "\(durationString) min"
@@ -32,9 +34,10 @@ class BottomSheetViewController: UIViewController, UITableViewDataSource, UITabl
         super.viewDidLoad()
     }
     
-    init(journeyPlannerResult: JourneyPlannerResult)
+    init(journeyPlannerResult: JourneyPlannerResult, mapItem: MKMapItem)
     {
         self.journeyPlannerResult = journeyPlannerResult
+        self.mapItem = mapItem
         super.init(nibName: nil, bundle: nil)
         
         

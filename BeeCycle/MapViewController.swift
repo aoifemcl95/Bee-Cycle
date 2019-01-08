@@ -175,8 +175,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
         }
     }
     
-    func createBottomSheet(journeyPlannerResult: JourneyPlannerResult){
-        let bottomSheetViewController = BottomSheetViewController(journeyPlannerResult: journeyPlannerResult)
+    func createBottomSheet(journeyPlannerResult: JourneyPlannerResult, mapItem: MKMapItem){
+        let bottomSheetViewController = BottomSheetViewController(journeyPlannerResult: journeyPlannerResult, mapItem: mapItem)
         self.addChildViewController(bottomSheetViewController)
         self.view.addSubview(bottomSheetViewController.view)
         bottomSheetViewController.didMove(toParentViewController: self)
@@ -200,7 +200,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
             let urlCoordinateString = coordinateString.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
             cycleStreetService.requestCycleStreet(coordinates: urlCoordinateString!) { (journeyPlannerResult: JourneyPlannerResult) in
                 self.createPolyline()
-                self.createBottomSheet(journeyPlannerResult: journeyPlannerResult)
+                self.createBottomSheet(journeyPlannerResult: journeyPlannerResult, mapItem: self.mapItem!)
                 
             }
         }
