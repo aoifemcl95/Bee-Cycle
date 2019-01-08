@@ -11,8 +11,6 @@ import MapKit
 
 class BottomSheetViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
-
-    @IBOutlet weak var takeMeButton: UIButton!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var directionsLabel: UILabel!
@@ -92,17 +90,12 @@ class BottomSheetViewController: UIViewController, UITableViewDataSource, UITabl
 
     func updateDirectionsForLabel(routeDirections: String)
     {
-        takeMeButton.alpha = 0
          directionsLabel.text = routeDirections
     }
     
     func showDurationOfRoute(timeInMinutes: String)
     {
-        takeMeButton.alpha = 0
         durationLabel.text = timeInMinutes
-    }
-    @IBAction func takeMeTapped(_ sender: Any) {
-        
     }
     
     

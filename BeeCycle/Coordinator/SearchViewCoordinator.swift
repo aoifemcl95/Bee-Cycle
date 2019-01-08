@@ -29,15 +29,15 @@ class SearchViewCoordinator: Coordinator {
         locationSearchTable.mapView = mapView
         presenter.pushViewController(locationSearchTable, animated: true)
         self.locationSearchTable = locationSearchTable
-        self.locationSearchTable?.delegate = self
+//        self.locationSearchTable?.delegate = self
     }
 }
 
-extension SearchViewCoordinator : LocationSearchDelegate
-{
-    func didSelectResult(mapItem: MKMapItem) {
-        let mapPinCoordinator = MapPinCoordinator(presenter:presenter, mapItem:mapItem)
-        mapPinCoordinator.start()
-        self.mapPinCoordinator = mapPinCoordinator
-    }
-}
+//extension SearchViewCoordinator : LocationSearchDelegate
+//{
+//    func didSelectResult(mapItem: MKMapItem) {
+//        let mapPinCoordinator = MapPinCoordinator(presenter:presenter, mapItem:mapItem)
+//        mapPinCoordinator.start()
+//        self.mapPinCoordinator = mapPinCoordinator
+//    }
+//}

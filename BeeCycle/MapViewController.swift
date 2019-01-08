@@ -27,6 +27,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
     var cycleLockerArray = [CycleLocker]()
     weak var coordinator: MainCoordinator?
     var routeDirections = ""
+    var locationSearchTableViewController = LocationSearchTable()
 //    var bottomSheetViewController = BottomSheetViewController.init(nibName: "BottomSheetViewController", bundle: nil)
     weak var delegate: MapViewControllerDelegate?
     var journeyOrigin = MKMapItem()
@@ -44,13 +45,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
         locationService.delegate = self
         mapView.showsUserLocation = true
         mapView.showsCompass = false
+        self.locationSearchTableViewController.delegate = self
         print(self.locationService.userLocation!.coordinate)
 
         
     }
     
     @IBAction func searchTapped(_ sender: Any) {
-        delegate?.mapViewDidSelectSearch(mapView: self.mapView)
+        createLocationTable()
+//        delegate?.mapViewDidSelectSearch(mapView: self.mapView)
     }
     
     
@@ -106,7 +109,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
             {
                 self.createMapPin(mapItem: mapItem!)
                 self.centerMapOnLocation(location: (mapItem?.placemark.location)!)
-                self.addBottomSheetView()
+//                self.addBottomSheetView()
             }
             hasGotRegion = true
         }
@@ -189,18 +192,17 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
     
     // cycle locker methods - bottom view controller
     
-    func addBottomSheetView() {
+    func addBottomSheetView(mapItem: MKMapItem) {
         
         if (mapItem != nil && self.locationService.userLocation != nil)
         {
             let locationString = createStringFromCoordinate(coordinate: (self.locationService.userLocation?.coordinate)!)
-//            let locationString = "-0.13370000,51.50998000"
-            let destinationCoordString = createStringFromCoordinate(coordinate: (mapItem?.placemark.coordinate)!)
+            let destinationCoordString = createStringFromCoordinate(coordinate: mapItem.placemark.coordinate)
             let coordinateString = "\(locationString)|\(destinationCoordString)"
             let urlCoordinateString = coordinateString.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
             cycleStreetService.requestCycleStreet(coordinates: urlCoordinateString!) { (journeyPlannerResult: JourneyPlannerResult) in
                 self.createPolyline()
-                self.createBottomSheet(journeyPlannerResult: journeyPlannerResult, mapItem: self.mapItem!)
+                self.createBottomSheet(journeyPlannerResult: journeyPlannerResult, mapItem: mapItem)
                 
             }
         }
@@ -280,7 +282,29 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
         return "\(lngString),\(latString)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
     }
     
+    func createLocationTable(){
+        self.addChildViewController(locationSearchTableViewController)
+        self.view.addSubview(locationSearchTableViewController.view)
+        locationSearchTableViewController.didMove(toParentViewController: self)
+        
+        let height = view.bounds.maxY
+        let width = view.frame.width
+        locationSearchTableViewController.view.frame = CGRect(x: 0, y: 0, width: width, height: height)
+//        locationTableViewController.view.frame = CGRect(x: 0, y: self.view.frame.maxX, width: width, height: height)
+    }
+    
+    
 }
 
+extension MapViewController : LocationSearchDelegate
+{
+    func didSelectResult(mapItem: MKMapItem) {
+        locationSearchTableViewController.view.frame = CGRect(x: 0, y: self.view.frame.maxX, width: view.frame.width, height: 0)
+            self.createMapPin(mapItem: mapItem)
+            self.centerMapOnLocation(location: (mapItem.placemark.location)!)
+            self.addBottomSheetView(mapItem: mapItem)
+    }
+    
+}
 
 
