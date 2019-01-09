@@ -34,6 +34,7 @@ class LocationSearchTable: UIViewController, UITableViewDelegate, UITableViewDat
         searchBar.delegate = self
         self.tableView.register(UINib(nibName: "LocationSearchResultCell", bundle: nil), forCellReuseIdentifier: "cell")
         definesPresentationContext = true
+        self.view.backgroundColor = UIColor.clear
     }
     
     init()
@@ -45,6 +46,7 @@ class LocationSearchTable: UIViewController, UITableViewDelegate, UITableViewDat
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = LocationSearchResultCell()

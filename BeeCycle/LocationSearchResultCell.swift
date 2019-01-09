@@ -12,6 +12,7 @@ class LocationSearchResultCell: UITableViewCell {
 
     @IBOutlet weak var searchResultLabel: UILabel!
     override func awakeFromNib() {
+//        self.prepareBackgroundView()
         super.awakeFromNib()
 //        self.searchResultLabel.text = nil
         // Initialization code
@@ -21,6 +22,18 @@ class LocationSearchResultCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func prepareBackgroundView()
+    {
+        let blurEffect = UIBlurEffect.init(style: .light)
+        let visualEffect = UIVisualEffectView.init(effect: blurEffect)
+        let bluredView = UIVisualEffectView.init(effect: blurEffect)
+        bluredView.contentView.addSubview(visualEffect)
+        
+        visualEffect.frame = self.bounds
+        bluredView.frame = self.bounds
+        self.insertSubview(bluredView, at: 0)
     }
     
     func updateLabelForResultName(name:String)

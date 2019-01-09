@@ -45,6 +45,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
         locationService.delegate = self
         mapView.showsUserLocation = true
         mapView.showsCompass = false
+        searchButton.layer.cornerRadius = 4.0
+        
         self.locationSearchTableViewController.delegate = self
         print(self.locationService.userLocation!.coordinate)
 

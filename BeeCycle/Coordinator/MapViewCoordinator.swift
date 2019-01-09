@@ -23,7 +23,6 @@ class MapViewCoordinator: Coordinator {
     func start()
     {
         let mapViewController = MapViewController(nibName: nil, bundle: nil)
-        mapViewController.title = "Map view"
         presenter.pushViewController(mapViewController, animated: true)
         
         self.mapViewController = mapViewController
