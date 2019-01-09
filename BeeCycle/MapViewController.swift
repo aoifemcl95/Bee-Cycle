@@ -40,10 +40,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
     
     @IBOutlet weak var searchField: UITextField!
     
+    @IBOutlet weak var searchResultsContainerView: UIView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.searchResultsContainerView.alpha = 0
         mapView.delegate = self
         locationService.delegate = self
         mapView.showsUserLocation = true
@@ -300,14 +302,17 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         self.addChildViewController(locationSearchTableViewController)
-        self.view.addSubview(locationSearchTableViewController.view)
+        self.searchResultsContainerView.alpha = 1
+        locationSearchTableViewController.view.frame = CGRect(
+        locationSearchTableViewController.view.frame = searchResultsContainerView.frame
+        self.searchResultsContainerView.addSubview(locationSearchTableViewController.view)
+        self.searchResultsContainerView.layoutSubviews()
         locationSearchTableViewController.didMove(toParentViewController: self)
         
-        let height = view.bounds.maxY-150
-        let width = view.frame.width
-        locationSearchTableViewController.view.frame = CGRect(x: 0, y:150, width: width, height: height)
-        locationSearchTableViewController.didMove(toParentViewController: self)
+//        let height = view.bounds.maxY-150
+//        let width = view.frame.width
         
+        locationSearchTableViewController.didMove(toParentViewController: self)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: handleTextChangeNotification), object: nil, userInfo: ["text":searchField.text!])
         
         return true

@@ -15,6 +15,7 @@
                 <outlet property="locateMe" destination="HGA-cs-MPX" id="F1b-wo-ICO"/>
                 <outlet property="mapView" destination="dWe-z0-gN4" id="Exq-ba-cVh"/>
                 <outlet property="searchField" destination="IdC-zQ-sQK" id="OeT-3X-xAN"/>
+                <outlet property="searchResultsContainerView" destination="REk-lV-h2O" id="U5t-vD-7va"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -47,14 +48,22 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="REk-lV-h2O">
+                    <rect key="frame" x="0.0" y="120" width="375" height="547"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="REk-lV-h2O" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Az2-D4-XYn"/>
                 <constraint firstItem="IdC-zQ-sQK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="Bb3-Ck-L45"/>
+                <constraint firstItem="REk-lV-h2O" firstAttribute="top" secondItem="IdC-zQ-sQK" secondAttribute="bottom" id="Csf-i5-4en"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="REk-lV-h2O" secondAttribute="trailing" id="Hqa-g6-acg"/>
                 <constraint firstItem="dWe-z0-gN4" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="UFy-xa-pXs"/>
                 <constraint firstItem="dWe-z0-gN4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="WRW-iH-pmP"/>
                 <constraint firstItem="IdC-zQ-sQK" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="aoa-S1-TTu"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="dWe-z0-gN4" secondAttribute="bottom" id="c8E-Cd-dVH"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="REk-lV-h2O" secondAttribute="bottom" id="eo7-Oa-GTI"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HGA-cs-MPX" secondAttribute="trailing" constant="26" id="jKW-pw-f9n"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="HGA-cs-MPX" secondAttribute="bottom" constant="43" id="k05-Pf-sUo"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dWe-z0-gN4" secondAttribute="trailing" id="waT-zb-x9Z"/>

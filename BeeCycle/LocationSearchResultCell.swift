@@ -10,6 +10,7 @@ import UIKit
 
 class LocationSearchResultCell: UITableViewCell {
 
+    @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var searchResultLabel: UILabel!
     override func awakeFromNib() {
 //        self.prepareBackgroundView()

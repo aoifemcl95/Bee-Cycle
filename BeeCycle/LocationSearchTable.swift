@@ -66,9 +66,17 @@ class LocationSearchTable: UIViewController, UITableViewDelegate, UITableViewDat
         var cell = LocationSearchResultCell()
         if (isSearching)
         {
+            var addressString = ""
             cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! LocationSearchResultCell
             let resultAtIndex = matchingItems[indexPath.row].placemark
             cell.searchResultLabel?.text = resultAtIndex.name
+            let subLocalityString = (resultAtIndex.subLocality != nil) ? resultAtIndex.subLocality! : ""
+            let postalCodeString = (resultAtIndex.postalCode != nil) ? resultAtIndex.postalCode! : ""
+            if (postalCodeString.count > 0 && subLocalityString.count > 0)
+            {
+                addressString = "\(subLocalityString), \(postalCodeString)"
+            }
+            cell.subtitleLabel.text = addressString
         }
         
         return cell
@@ -83,6 +91,10 @@ class LocationSearchTable: UIViewController, UITableViewDelegate, UITableViewDat
             delegate?.didSelectResult(mapItem: mapItem)
         
    
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 55.0
     }
     
     func prepareBackgroundView()
