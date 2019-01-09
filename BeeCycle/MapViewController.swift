@@ -15,8 +15,10 @@ protocol MapViewControllerDelegate : class
     
 }
 
+let handleTextChangeNotification = "handleTextChangeNotification"
 
-class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDelegate, Storyboarded{
+class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDelegate, Storyboarded, UITextFieldDelegate{
+
     let regionRadius: CLLocationDistance = 1000
     var cycleService = CycleService()
     var cycleStreetService = CycleStreetService()
@@ -36,7 +38,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var locateMe: UIButton!
     
-    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var searchField: UITextField!
+    
     
     
     override func viewDidLoad() {
@@ -45,29 +48,26 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
         locationService.delegate = self
         mapView.showsUserLocation = true
         mapView.showsCompass = false
-        searchButton.layer.cornerRadius = 4.0
         
         self.locationSearchTableViewController.delegate = self
         print(self.locationService.userLocation!.coordinate)
-
-        
+        searchField.placeholder = "Where are you going to?"
+        searchField.delegate = self
+        searchField.addTarget(self, action: #selector(UITextFieldDelegate.textFieldShouldEndEditing(_:)), for: UIControlEvents.editingChanged)
     }
     
-    @IBAction func searchTapped(_ sender: Any) {
-        createLocationTable()
-//        delegate?.mapViewDidSelectSearch(mapView: self.mapView)
-    }
     
+    @IBAction func locateMeTapped(_ sender: Any) {
+        zoomToUserLocation()
+        createAnnotations()
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
     }
     
-    @IBAction func locateMeTapped(_ sender: Any) {
-        zoomToUserLocation()
-        createAnnotations()
-    }
+
     
     func createMapPin(mapItem: MKMapItem)
     {
@@ -296,7 +296,27 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
     }
     
     
+    // Text field delegate
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        self.addChildViewController(locationSearchTableViewController)
+        self.view.addSubview(locationSearchTableViewController.view)
+        locationSearchTableViewController.didMove(toParentViewController: self)
+        
+        let height = view.bounds.maxY-150
+        let width = view.frame.width
+        locationSearchTableViewController.view.frame = CGRect(x: 0, y:150, width: width, height: height)
+        locationSearchTableViewController.didMove(toParentViewController: self)
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: handleTextChangeNotification), object: nil, userInfo: ["text":searchField.text!])
+        
+        return true
+    }
+    
+    
 }
+
+
 
 extension MapViewController : LocationSearchDelegate
 {

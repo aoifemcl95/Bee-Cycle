@@ -16,7 +16,6 @@ protocol LocationSearchDelegate: class
 
 class LocationSearchTable: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     var matchingItems: [MKMapItem] = []
     var mapView: MKMapView? =  nil
@@ -26,15 +25,30 @@ class LocationSearchTable: UIViewController, UITableViewDelegate, UITableViewDat
     let navController = UINavigationController()
     var delegate: LocationSearchDelegate?
     var isSearching: Bool = false
+    var searchText = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(LocationSearchTable.handleTextChange(_:)),
+                                               name: NSNotification.Name(rawValue: handleTextChangeNotification), object: nil)
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        searchBar.delegate = self
         self.tableView.register(UINib(nibName: "LocationSearchResultCell", bundle: nil), forCellReuseIdentifier: "cell")
         definesPresentationContext = true
-        self.view.backgroundColor = UIColor.clear
+        self.tableView.backgroundColor = UIColor.clear
+        self.prepareBackgroundView()
+   
+    }
+    
+    @objc func handleTextChange(_ myNot: Notification) {
+        if let use = myNot.userInfo {
+            if let text = use["text"] {
+                searchText = text as! String
+            }
+        }
+        updateSearchResults()
+        tableView.reloadData()
     }
     
     init()
@@ -71,14 +85,24 @@ class LocationSearchTable: UIViewController, UITableViewDelegate, UITableViewDat
    
     }
     
-}
-
-extension LocationSearchTable : UISearchBarDelegate
-{
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        guard let searchBarText = searchBar.text else { return }
+    func prepareBackgroundView()
+    {
+        let blurEffect = UIBlurEffect.init(style: .light)
+        let visualEffect = UIVisualEffectView.init(effect: blurEffect)
+        let bluredView = UIVisualEffectView.init(effect: blurEffect)
+        bluredView.contentView.addSubview(visualEffect)
+        
+        visualEffect.frame = self.tableView.frame
+        bluredView.frame = self.tableView.frame
+        
+        self.tableView.backgroundView = bluredView
+        
+//        self.tableView.insertSubview(bluredView, at: 0)
+    }
+    
+    func updateSearchResults() {
         let request = MKLocalSearchRequest()
-        request.naturalLanguageQuery = searchBarText
+        request.naturalLanguageQuery = searchText
         let search = MKLocalSearch(request: request)
         search.start { (response, error) in
             guard let response = response else {
@@ -89,8 +113,13 @@ extension LocationSearchTable : UISearchBarDelegate
         }
         isSearching = true
     }
-
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
 }
+
 
 
 
