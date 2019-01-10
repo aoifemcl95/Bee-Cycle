@@ -42,6 +42,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
     
     @IBOutlet weak var searchResultsContainerView: UIView!
     
+    @IBOutlet weak var closeSearchButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +57,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
         searchField.placeholder = "Where are you going to?"
         searchField.delegate = self
         searchField.addTarget(self, action: #selector(UITextFieldDelegate.textFieldShouldEndEditing(_:)), for: UIControlEvents.editingChanged)
+        self.closeSearchButton.alpha = 0
     }
     
     
@@ -90,6 +92,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
             annotations.add(annotation)
             mapView.addAnnotations(annotations as! [MKAnnotation])
         }
+    }
+    @IBAction func closeSearchTapped(_ sender: Any) {
+        self.closeLocationTable()
+        self.closeSearchButton.alpha = 0
+        self.searchField.text = ""
     }
     
     
@@ -294,7 +301,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
         let height = view.bounds.maxY
         let width = view.frame.width
         locationSearchTableViewController.view.frame = CGRect(x: 0, y: 0, width: width, height: height)
-//        locationTableViewController.view.frame = CGRect(x: 0, y: self.view.frame.maxX, width: width, height: height)
+    }
+    
+    func closeLocationTable() {
+        self.view.sendSubview(toBack: self.searchResultsContainerView)
+        locationSearchTableViewController.view.frame = CGRect(x: 0, y: self.view.frame.maxX, width: view.frame.width, height: 0)
     }
     
     
@@ -302,14 +313,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         self.addChildViewController(locationSearchTableViewController)
+        self.view.bringSubview(toFront: self.searchResultsContainerView)
         self.searchResultsContainerView.alpha = 1
-//        locationSearchTableViewController.view.frame = searchResultsContainerView.frame
+        self.closeSearchButton.alpha = 1
         locationSearchTableViewController.view.frame = CGRect(x: 0, y: 0, width: self.searchResultsContainerView.bounds.width, height: self.searchResultsContainerView.bounds.height)
         self.searchResultsContainerView.addSubview(locationSearchTableViewController.view)
         locationSearchTableViewController.didMove(toParentViewController: self)
-        
-//        let height = view.bounds.maxY-150
-//        let width = view.frame.width
         
         locationSearchTableViewController.didMove(toParentViewController: self)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: handleTextChangeNotification), object: nil, userInfo: ["text":searchField.text!])
@@ -325,10 +334,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
 extension MapViewController : LocationSearchDelegate
 {
     func didSelectResult(mapItem: MKMapItem) {
-        locationSearchTableViewController.view.frame = CGRect(x: 0, y: self.view.frame.maxX, width: view.frame.width, height: 0)
-            self.createMapPin(mapItem: mapItem)
-            self.centerMapOnLocation(location: (mapItem.placemark.location)!)
-            self.addBottomSheetView(mapItem: mapItem)
+        self.closeLocationTable()
+        self.createMapPin(mapItem: mapItem)
+        self.centerMapOnLocation(location: (mapItem.placemark.location)!)
+        self.addBottomSheetView(mapItem: mapItem)
     }
     
 }

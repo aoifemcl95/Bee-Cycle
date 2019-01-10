@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapViewController" customModule="BeeCycle" customModuleProvider="target">
             <connections>
+                <outlet property="closeSearchButton" destination="XMu-BH-TbX" id="p1n-9q-s2H"/>
                 <outlet property="locateMe" destination="HGA-cs-MPX" id="F1b-wo-ICO"/>
                 <outlet property="mapView" destination="dWe-z0-gN4" id="Exq-ba-cVh"/>
                 <outlet property="searchField" destination="IdC-zQ-sQK" id="OeT-3X-xAN"/>
@@ -52,6 +53,13 @@
                     <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XMu-BH-TbX">
+                    <rect key="frame" x="320.5" y="80" width="46.5" height="30"/>
+                    <state key="normal" title="Close"/>
+                    <connections>
+                        <action selector="closeSearchTapped:" destination="-1" eventType="touchUpInside" id="26E-j6-7xr"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -61,11 +69,14 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="REk-lV-h2O" secondAttribute="trailing" id="Hqa-g6-acg"/>
                 <constraint firstItem="dWe-z0-gN4" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="UFy-xa-pXs"/>
                 <constraint firstItem="dWe-z0-gN4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="WRW-iH-pmP"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XMu-BH-TbX" secondAttribute="trailing" constant="8" id="YnU-TB-7AY"/>
                 <constraint firstItem="IdC-zQ-sQK" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="aoa-S1-TTu"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="dWe-z0-gN4" secondAttribute="bottom" id="c8E-Cd-dVH"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="REk-lV-h2O" secondAttribute="bottom" id="eo7-Oa-GTI"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HGA-cs-MPX" secondAttribute="trailing" constant="26" id="jKW-pw-f9n"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="HGA-cs-MPX" secondAttribute="bottom" constant="43" id="k05-Pf-sUo"/>
+                <constraint firstItem="XMu-BH-TbX" firstAttribute="centerY" secondItem="IdC-zQ-sQK" secondAttribute="centerY" id="o9W-dI-n0o"/>
+                <constraint firstItem="XMu-BH-TbX" firstAttribute="leading" secondItem="IdC-zQ-sQK" secondAttribute="trailing" constant="8" id="ok7-TS-CBY"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dWe-z0-gN4" secondAttribute="trailing" id="waT-zb-x9Z"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
