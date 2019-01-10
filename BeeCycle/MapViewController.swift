@@ -303,10 +303,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         self.addChildViewController(locationSearchTableViewController)
         self.searchResultsContainerView.alpha = 1
-        locationSearchTableViewController.view.frame = CGRect(
-        locationSearchTableViewController.view.frame = searchResultsContainerView.frame
+//        locationSearchTableViewController.view.frame = searchResultsContainerView.frame
+        locationSearchTableViewController.view.frame = CGRect(x: 0, y: 0, width: self.searchResultsContainerView.bounds.width, height: self.searchResultsContainerView.bounds.height)
         self.searchResultsContainerView.addSubview(locationSearchTableViewController.view)
-        self.searchResultsContainerView.layoutSubviews()
         locationSearchTableViewController.didMove(toParentViewController: self)
         
 //        let height = view.bounds.maxY-150
