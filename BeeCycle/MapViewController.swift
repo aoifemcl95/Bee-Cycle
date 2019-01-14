@@ -43,10 +43,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
     @IBOutlet weak var searchResultsContainerView: UIView!
     
     @IBOutlet weak var closeSearchButton: UIButton!
+    @IBOutlet weak var bottomSheetContainerView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.searchResultsContainerView.alpha = 0
+        self.bottomSheetContainerView.alpha = 0
         mapView.delegate = self
         locationService.delegate = self
         mapView.showsUserLocation = true
@@ -96,6 +98,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
     @IBAction func closeSearchTapped(_ sender: Any) {
         self.closeLocationTable()
         self.closeSearchButton.alpha = 0
+        self.hideBottomSheetView()
         self.searchField.text = ""
     }
     
@@ -192,12 +195,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
     func createBottomSheet(journeyPlannerResult: JourneyPlannerResult, mapItem: MKMapItem){
         let bottomSheetViewController = BottomSheetViewController(journeyPlannerResult: journeyPlannerResult, mapItem: mapItem)
         self.addChildViewController(bottomSheetViewController)
-        self.view.addSubview(bottomSheetViewController.view)
+        self.bottomSheetContainerView.alpha = 1
+        self.bottomSheetContainerView.addSubview(bottomSheetViewController.view)
+        
         bottomSheetViewController.didMove(toParentViewController: self)
         
-        let height = view.frame.height
-        let width = view.frame.width
-        bottomSheetViewController.view.frame = CGRect(x: 0, y: self.view.frame.maxX, width: width, height: height)
+        let height = bottomSheetContainerView.frame.height
+        let width = bottomSheetContainerView.frame.width
+        bottomSheetViewController.view.frame = CGRect(x: 0, y: self.bottomSheetContainerView.frame.maxX, width: width, height: height)
     }
     
     
@@ -220,9 +225,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
         
     }
     
-//    func hideBottomSheetView() {
-//        bottomSheetViewController.view.frame = CGRect(x: 0, y: self.view.frame.maxX, width: view.frame.width, height: 0)
-//    }
+    func hideBottomSheetView() {
+        self.bottomSheetContainerView.alpha = 0
+    }
     
     func directionInCurrentMap(to destination: CLLocationCoordinate2D)
     {
@@ -312,14 +317,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, LocationServiceDel
     // Text field delegate
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        mapView.removeOverlays(mapView.overlays)
         self.addChildViewController(locationSearchTableViewController)
         self.view.bringSubview(toFront: self.searchResultsContainerView)
         self.searchResultsContainerView.alpha = 1
         self.closeSearchButton.alpha = 1
         locationSearchTableViewController.view.frame = CGRect(x: 0, y: 0, width: self.searchResultsContainerView.bounds.width, height: self.searchResultsContainerView.bounds.height)
         self.searchResultsContainerView.addSubview(locationSearchTableViewController.view)
-        locationSearchTableViewController.didMove(toParentViewController: self)
-        
         locationSearchTableViewController.didMove(toParentViewController: self)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: handleTextChangeNotification), object: nil, userInfo: ["text":searchField.text!])
         

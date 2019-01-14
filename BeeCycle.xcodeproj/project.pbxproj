@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1941F462212F33B200D19A70 /* LocationSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1941F460212F33B200D19A70 /* LocationSearchResultCell.swift */; };
 		1941F463212F33B200D19A70 /* LocationSearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1941F461212F33B200D19A70 /* LocationSearchResultCell.xib */; };
-		1964E3FD8BFCBD38AB903278 /* libPods-BeeCycle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE60A9B502F4D6C53655246F /* libPods-BeeCycle.a */; };
 		19761C24212F2AFC00E5CC51 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19761C22212F2AFC00E5CC51 /* LocationSearchTable.swift */; };
 		19761C25212F2AFC00E5CC51 /* LocationSearchTable.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19761C23212F2AFC00E5CC51 /* LocationSearchTable.xib */; };
 		19AA5CB821921E8500DC941C /* SearchViewCoordinatorTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AA5CB721921E8500DC941C /* SearchViewCoordinatorTwo.swift */; };
@@ -22,7 +21,6 @@
 		19E546F020F411B5000B3C35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19E546EE20F411B5000B3C35 /* LaunchScreen.storyboard */; };
 		19E546FB20F411B5000B3C35 /* BeeCycleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E546FA20F411B5000B3C35 /* BeeCycleTests.swift */; };
 		19E5470620F411B5000B3C35 /* BeeCycleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E5470520F411B5000B3C35 /* BeeCycleUITests.swift */; };
-		4ED4AA0A3A09D083CDABC7F2 /* libPods-BeeCycleUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92A23FAAAA738B24703AEFE8 /* libPods-BeeCycleUITests.a */; };
 		5A2A3F1921020A64000FD3F8 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2A3F1821020A63000FD3F8 /* LocationService.swift */; };
 		5A2A3F5621077D91000FD3F8 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2A3F5421077D91000FD3F8 /* BottomSheetViewController.swift */; };
 		5A2A3F5721077D91000FD3F8 /* BottomSheetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A2A3F5521077D91000FD3F8 /* BottomSheetViewController.xib */; };
@@ -45,7 +43,6 @@
 		5AB3C40D218A13BC0031974E /* RoutePlanCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB3C40C218A13BC0031974E /* RoutePlanCoordinator.swift */; };
 		5AD2241420F4FCBC000A8112 /* CycleLocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD2241320F4FCBC000A8112 /* CycleLocker.swift */; };
 		5AD2242220F65AD0000A8112 /* CycleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD2242120F65AD0000A8112 /* CycleService.swift */; };
-		971A7A46348B9C932AFF5D6C /* libPods-BeeCycleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6479A14E4B73B49C8AE1EE3 /* libPods-BeeCycleTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,11 +109,8 @@
 		5AB3C40C218A13BC0031974E /* RoutePlanCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutePlanCoordinator.swift; sourceTree = "<group>"; };
 		5AD2241320F4FCBC000A8112 /* CycleLocker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleLocker.swift; sourceTree = "<group>"; };
 		5AD2242120F65AD0000A8112 /* CycleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleService.swift; sourceTree = "<group>"; };
-		92A23FAAAA738B24703AEFE8 /* libPods-BeeCycleUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BeeCycleUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0C4F84A3E35DE992B2B7F4A /* Pods-BeeCycleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeeCycleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BeeCycleTests/Pods-BeeCycleTests.release.xcconfig"; sourceTree = "<group>"; };
 		DE35C043BD3A105EB19DE94F /* Pods-BeeCycleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeeCycleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BeeCycleUITests/Pods-BeeCycleUITests.release.xcconfig"; sourceTree = "<group>"; };
-		E6479A14E4B73B49C8AE1EE3 /* libPods-BeeCycleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BeeCycleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FE60A9B502F4D6C53655246F /* libPods-BeeCycle.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BeeCycle.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +118,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1964E3FD8BFCBD38AB903278 /* libPods-BeeCycle.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +125,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				971A7A46348B9C932AFF5D6C /* libPods-BeeCycleTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,7 +132,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4ED4AA0A3A09D083CDABC7F2 /* libPods-BeeCycleUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,7 +146,6 @@
 				19E5470420F411B5000B3C35 /* BeeCycleUITests */,
 				19E546E320F411B5000B3C35 /* Products */,
 				F61DF5C8164009AC8B949CC1 /* Pods */,
-				607BEC1C4725620FAF52D8FC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -235,16 +225,6 @@
 				19AA5CB921A0557100DC941C /* MapPinCoordinator.swift */,
 			);
 			path = Coordinator;
-			sourceTree = "<group>";
-		};
-		607BEC1C4725620FAF52D8FC /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				FE60A9B502F4D6C53655246F /* libPods-BeeCycle.a */,
-				E6479A14E4B73B49C8AE1EE3 /* libPods-BeeCycleTests.a */,
-				92A23FAAAA738B24703AEFE8 /* libPods-BeeCycleUITests.a */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		F61DF5C8164009AC8B949CC1 /* Pods */ = {

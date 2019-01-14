@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapViewController" customModule="BeeCycle" customModuleProvider="target">
             <connections>
+                <outlet property="bottomSheetContainerView" destination="zVm-yo-wJz" id="HkA-eW-HUY"/>
                 <outlet property="closeSearchButton" destination="XMu-BH-TbX" id="p1n-9q-s2H"/>
                 <outlet property="locateMe" destination="HGA-cs-MPX" id="F1b-wo-ICO"/>
                 <outlet property="mapView" destination="dWe-z0-gN4" id="Exq-ba-cVh"/>
@@ -39,6 +40,10 @@
                         <action selector="locateMeTapped:" destination="-1" eventType="touchUpInside" id="qJ0-ue-xcv"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zVm-yo-wJz">
+                    <rect key="frame" x="0.0" y="120" width="375" height="547"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IdC-zQ-sQK">
                     <rect key="frame" x="62.5" y="70" width="250" height="50"/>
                     <constraints>
@@ -66,7 +71,9 @@
                 <constraint firstItem="REk-lV-h2O" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Az2-D4-XYn"/>
                 <constraint firstItem="IdC-zQ-sQK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="Bb3-Ck-L45"/>
                 <constraint firstItem="REk-lV-h2O" firstAttribute="top" secondItem="IdC-zQ-sQK" secondAttribute="bottom" id="Csf-i5-4en"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="zVm-yo-wJz" secondAttribute="bottom" id="DVM-0n-znF"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="REk-lV-h2O" secondAttribute="trailing" id="Hqa-g6-acg"/>
+                <constraint firstItem="zVm-yo-wJz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Lk8-z7-7CD"/>
                 <constraint firstItem="dWe-z0-gN4" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="UFy-xa-pXs"/>
                 <constraint firstItem="dWe-z0-gN4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="WRW-iH-pmP"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XMu-BH-TbX" secondAttribute="trailing" constant="8" id="YnU-TB-7AY"/>
@@ -75,8 +82,10 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="REk-lV-h2O" secondAttribute="bottom" id="eo7-Oa-GTI"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HGA-cs-MPX" secondAttribute="trailing" constant="26" id="jKW-pw-f9n"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="HGA-cs-MPX" secondAttribute="bottom" constant="43" id="k05-Pf-sUo"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zVm-yo-wJz" secondAttribute="trailing" id="kDd-51-905"/>
                 <constraint firstItem="XMu-BH-TbX" firstAttribute="centerY" secondItem="IdC-zQ-sQK" secondAttribute="centerY" id="o9W-dI-n0o"/>
                 <constraint firstItem="XMu-BH-TbX" firstAttribute="leading" secondItem="IdC-zQ-sQK" secondAttribute="trailing" constant="8" id="ok7-TS-CBY"/>
+                <constraint firstItem="zVm-yo-wJz" firstAttribute="top" secondItem="IdC-zQ-sQK" secondAttribute="bottom" id="qII-Ka-5sK"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dWe-z0-gN4" secondAttribute="trailing" id="waT-zb-x9Z"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
